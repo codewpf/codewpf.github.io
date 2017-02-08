@@ -6,3 +6,6 @@ npm-debug.log
 public
 .deploy/
 .deploy_git/
+.idea/
+*.log
+*.iml
