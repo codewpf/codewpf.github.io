@@ -87,12 +87,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Alex 进阶之路">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="在Swift中，自定义操作符就是简单的二步：首先在全局使用operator关键字来声明操作符，同时用prefix、infix或postfix来声明操作符的位置；然后在所需要的类/结构体中实现操作符。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自定义操作符">
+<meta property="og:url" content="http://yoursite.com/2017/02/09/自定义操作符/index.html">
 <meta property="og:site_name" content="Alex 进阶之路">
+<meta property="og:description" content="在Swift中，自定义操作符就是简单的二步：首先在全局使用operator关键字来声明操作符，同时用prefix、infix或postfix来声明操作符的位置；然后在所需要的类/结构体中实现操作符。">
+<meta property="og:image" content="http://yoursite.com/2017/02/09/自定义操作符/trunks-1-1.png">
+<meta property="og:image" content="http://yoursite.com/2017/02/09/自定义操作符/trunks-1-2.png">
+<meta property="og:updated_time" content="2017-02-09T07:05:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alex 进阶之路">
+<meta name="twitter:title" content="自定义操作符">
+<meta name="twitter:description" content="在Swift中，自定义操作符就是简单的二步：首先在全局使用operator关键字来声明操作符，同时用prefix、infix或postfix来声明操作符的位置；然后在所需要的类/结构体中实现操作符。">
+<meta name="twitter:image" content="http://yoursite.com/2017/02/09/自定义操作符/trunks-1-1.png">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/09/自定义操作符/"/>
 
 
 
 
 
-  <title> Alex 进阶之路 </title>
+  <title> 自定义操作符 | Alex 进阶之路 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -151,9 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,9 +239,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -269,10 +274,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/02/09/自定义操作符/" itemprop="url">
-                  自定义操作符
-                </a>
+                自定义操作符
               
             
           </h1>
@@ -345,24 +347,48 @@
       
 
       
-        
-          <p>在Swift中，自定义操作符就是简单的二步：首先在全局使用operator关键字来声明操作符，同时用prefix、infix或postfix来声明操作符的位置；然后在所需要的类/结构体中实现操作符。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/09/自定义操作符/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <p>在Swift中，自定义操作符就是简单的二步：首先在全局使用operator关键字来声明操作符，同时用prefix、infix或postfix来声明操作符的位置；然后在所需要的类/结构体中实现操作符。</p>
+<a id="more"></a>
+<p>概括一下就是，声明+实现。</p>
+<p>自定义操作符需要以两类字符开头：</p>
+<ul>
+<li>ASCII字符中的/, =, -, +, !, *, %, &lt;, &gt;, &amp;, |, ^, ?, ~</li>
+</ul>
+<p>如我自己写的正则判断例子</p>
+<pre><code>infix operator =~
+
+func =~(str: String, matchs: String) -&gt; Bool {
+    do {
+        return try RegexHelper(matchs).match(str)
+    } catch _ {
+        return false
+    }
+}
+</code></pre><ul>
+<li>Unicode中的Mathematical Operators, Miscellaneous Symbols和Dingbats Unicode blocks这些字符中的字符，然后后面允许使用组合的Unicode字符</li>
+</ul>
+<p>如微博中的例子</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> ★+</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x: <span class="type">CGFloat</span></div><div class="line">    <span class="keyword">var</span> y: <span class="type">CGFloat</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> ★+ <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Vector2D</span>(x: <span class="keyword">left</span>.x + <span class="keyword">right</span>.x, y: <span class="keyword">left</span>.y + <span class="keyword">right</span>.y)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> vector1 = <span class="type">Vector2D</span>(x: <span class="number">10</span>, y: <span class="number">20</span>)</div><div class="line"><span class="keyword">let</span> vector2 = <span class="type">Vector2D</span>(x: <span class="number">30</span>, y: <span class="number">10</span>)</div><div class="line"></div><div class="line"><span class="keyword">let</span> vector = vector1 ★+ vector2</div><div class="line"></div><div class="line"><span class="built_in">print</span>(vector)</div><div class="line"></div><div class="line"><span class="comment">// 输出结果: Vector2D(x: 40.0, y: 30.0)</span></div></pre></td></tr></table></figure>
+<p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" target="_blank" rel="external">参考1</a></p>
+<p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID418" target="_blank" rel="external">参考2</a></p>
+<p>其中参考2中<br><img src="/2017/02/09/自定义操作符/trunks-1-1.png" alt=""><br>意思就是如果以dot(.)开头，运算符后面可以包含dot(.)，如果不是dot(.)开头则不可以再包含dot(.)。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> .+.</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">var</span> x: <span class="type">CGFloat</span></div><div class="line">    <span class="keyword">var</span> y: <span class="type">CGFloat</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Vector2D</span> </span>&#123;</div><div class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> .+. <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="type">Vector2D</span>(x: <span class="keyword">left</span>.x + <span class="keyword">right</span>.x, y: <span class="keyword">left</span>.y + <span class="keyword">right</span>.y)</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">let</span> vector1 = <span class="type">Vector2D</span>(x: <span class="number">10</span>, y: <span class="number">20</span>)</div><div class="line"><span class="keyword">let</span> vector2 = <span class="type">Vector2D</span>(x: <span class="number">30</span>, y: <span class="number">10</span>)</div><div class="line"></div><div class="line"><span class="keyword">let</span> vector = vector1 .+. vector2</div><div class="line"></div><div class="line"><span class="built_in">print</span>(vector)</div><div class="line"></div><div class="line"><span class="comment">// 输出结果: Vector2D(x: 40.0, y: 30.0)</span></div></pre></td></tr></table></figure>
+<p>错误如下图<br><img src="/2017/02/09/自定义操作符/trunks-1-2.png" alt=""></p>
+
       
     </div>
 
     <div>
       
+        
+
+      
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
@@ -371,21 +397,22 @@
       
 
       
-
+        
       
 
       
+
       
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -393,6 +420,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -588,6 +619,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
