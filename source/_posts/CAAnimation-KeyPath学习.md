@@ -1,5 +1,5 @@
 ---
-title: CAAnimation KeyPath学习总结
+title: CAAnimation KeyPath学习
 date: 2017-02-11 20:42:45
 categories: 学习总结
 ---
