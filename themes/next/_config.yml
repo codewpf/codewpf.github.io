@@ -38,6 +38,7 @@ seo: false
 menu:
   home: /
   trucks: /categories/知识收集/
+  filters: /categories/学习总结/
 
   #categories: /categories
   #about: /about
