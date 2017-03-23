@@ -13,13 +13,13 @@ categories: 学习总结
 | transform.rotation.y |  围绕Y轴旋转 | 0 ~  2*M_PI |
 | transform.rotation.z |  围绕Z轴旋转 | 0 ~  2*M_PI |
 | cornerRadius | 圆角变化 | 0 ~ 2*MAX(width,height) |
-| backgroundColor | 颜色变化，透明度不变 | ***AnyColor.cgColor***[^1] |
+| backgroundColor | 颜色变化，透明度不变 |  ***AnyColor.cgColor***[^1] |
 | opacity | 透明度变化 | 0 ~ 1 |
-| bounds  | 大小变化，中心不变 |  CGRect |
+| bounds  | 大小变化，中心不变 | CGRect |
 | position  | 中心变化  | CGPoint |
 | position.x  | 中心X变化  | CGFloat |
 | position.y  | 中心Y变化  | CGFloat |
-| contents  | 内容变化 如ImageView.image| image.cgImage[^1]|
+| contents  | 内容变化 如ImageView.image |  ***image.cgImage***[^2]|
 | borderWidth | 边框宽| 0 ~ |
 
 <!-- more -->
@@ -95,6 +95,8 @@ CAAnimation中 当isRemovedOnCompletion = false 时 fillMode = kCAFillModeForwar
 [官方参考](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/AnimatableProperties/AnimatableProperties.html#//apple_ref/doc/uid/TP40004514-CH11-SW2)
 
 
-[^1]: 添加在Layer上，所以要用cgXXXX 
+[^1]: 添加在Layer上，所以要用cgColor
+[^2]: 添加在Layer上，所以要用cgImage
+
 
 
