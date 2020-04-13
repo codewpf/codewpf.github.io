@@ -74,3 +74,11 @@ deploy:
 
 # extensions
 avatar: /images/avatar.jpg
+
+
+# local search
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
