@@ -3,12 +3,13 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Alex 进阶之路
-subtitle: 脑子里的都是浆糊 写下来的才是代码
+title: Alex's Note
+subtitle: Keep going, 加油
 description:
-author: Alex-W
-language: zh-Hans
-timezone:
+author: Alex
+# language: zh-Hans
+language: en
+timezone: Pacific/Auckland
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
