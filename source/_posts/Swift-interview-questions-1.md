@@ -14,6 +14,8 @@ Basicly, value type usually defined as Enum, Struct, Tuple and Base value type(I
 >
 > Copying a reference, on the other hand, implicitly creates a shared instance. After a copy, two variables then refer to a single instance of the data, so modifying data in the second variable also affects the original,
 
+<!-- more -->
+
 ###Summary
 The benefits of the value type is you could always get a unique and copied instance immediately and you do not need to worry about its value will be alter in multiple tasks.
 
@@ -23,13 +25,13 @@ Value type
 
 - get individual data 
 - deep copy
+- When you want to change the property of a value type object, you should create a *var* variable/object. Otherwise you can not update its property value even if the property type is “var”, because “let” make the whole object to be immutable.
 
 Reference types
 
 - share data with a same memory address 
 - shallow copy
-
-
+- *Class* can be inherited by a subcalss.
 
 ###How to choose
 Use a value type when:
