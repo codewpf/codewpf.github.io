@@ -4,6 +4,7 @@ date: 2020-04-21 00:04:42
 categories: Interviews
 tags: 
 - Swift
+- Interview
 ---
 
 ## 1 What is the difference between let and var
