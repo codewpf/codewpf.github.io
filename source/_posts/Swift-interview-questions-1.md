@@ -7,7 +7,7 @@ tags:
 - Interview
 ---
 
-## 1 What are value type and reference type, and its differences? How to choose?
+## What are value type and reference type, and its differences? How to choose?
 
 Basicly, value type usually defined as Enum, Struct, Tuple and Base value type(Int, Float, Array, String, Dictionary). One the other hand, reference type defined as Class and Clousure(Block).
 
