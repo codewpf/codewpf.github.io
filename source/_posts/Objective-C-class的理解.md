@@ -1,7 +1,7 @@
 ---
 title: Objective-C class的理解
 date: 2017-03-30 23:41:58
-categories: 学习总结
+categories: iOS
 tags: 
 - OC
 ---

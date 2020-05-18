@@ -1,7 +1,7 @@
 ---
 title: iOS StatusBar 控制
 date: 2018-01-11 11:02:54
-categories: 学习总结
+categories: iOS
 tags: 
 - OC
 - Swift

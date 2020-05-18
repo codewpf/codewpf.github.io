@@ -1,8 +1,9 @@
 ---
 title: unowned and weak in Swift
 date: 2020-04-14 00:08:22
-categories: 知识收集
-tags: Swift
+categories: iOS
+tags: 
+- Swift
 ---
 
 The differece between **weak** and **unowned** is does the block have an async function which will be re-invoke in future.

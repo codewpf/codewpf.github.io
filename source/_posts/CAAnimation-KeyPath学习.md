@@ -1,8 +1,9 @@
 ---
 title: CAAnimation KeyPath学习
 date: 2017-02-11 20:42:45
-categories: 学习总结
-tags: Swift
+categories: iOS
+tags: 
+- Swift
 ---
 
 | KeyPath | 描述 | 值 |
