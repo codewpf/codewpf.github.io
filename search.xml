@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Android Learning 2</title>
+    <url>/2020/05/14/Android-Learning-2/</url>
+    <content><![CDATA[<h2 id="Install-Android-Studio"><a href="#Install-Android-Studio" class="headerlink" title="Install Android Studio"></a>Install Android Studio</h2><ul>
+<li>Unable to install Intel HAXM</li>
+<li>Unknown Error</li>
+<li>Please file a bug against Android Studio.</li>
+</ul>
+<p>The steps of installing Android studio is similar with IntelliJ. </p>
+<h2 id="Install-Flutter"><a href="#Install-Flutter" class="headerlink" title="Install Flutter"></a>Install Flutter</h2><h3 id="issues"><a href="#issues" class="headerlink" title="issues"></a>issues</h3><ul>
+<li><p><a href="https://flutter.dev/docs/get-started/install/" target="_blank" rel="noopener">flutter docs</a></p>
+</li>
+<li><p>Android toolchain - develop for Android devices<br>  ✗ ANDROID_HOME = /usr/local/opt/android-sdk</p>
+<pre><code>but Android SDK not found at this location.
+</code></pre><blockquote>
+<p>flutter config –android-sdk /path/to/android/sdk</p>
+</blockquote>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android learning 1</title>
+    <url>/2020/05/12/Android-learning-1/</url>
+    <content><![CDATA[<h2 id="First-blood-Install-Android-SDK"><a href="#First-blood-Install-Android-SDK" class="headerlink" title="First blood - Install Android SDK"></a>First blood - Install Android SDK</h2><h3 id="IntelliJ-error"><a href="#IntelliJ-error" class="headerlink" title="IntelliJ - error"></a>IntelliJ - error</h3><p>A problem occurred configuring project ‘:app’.</p>
+<blockquote>
+<p>The SDK directory ‘/Users/eleven/Documents/Ktolin/AppDemo/PleaseSpecifyAndroidSdkPathHere’ does not exist.</p>
+</blockquote>
+<p>update the <code>local.properties</code> file:</p>
+<figure class="highlight kotlin"><table><tr><td class="code"><pre><span class="line">sdk.dir=PleaseSpecifyAndroidSdkPathHere</span><br><span class="line"></span><br><span class="line">PleaseSpecifyAndroidSdkPathHere -&gt; /Users<span class="comment">/*user name*/</span>Library/Android/sdk</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="brew-install-fail"><a href="#brew-install-fail" class="headerlink" title="brew install - fail"></a>brew install - fail</h3><ul>
+<li>brew update</li>
+<li><p>brew install android-sdk</p>
+<blockquote>
+<p>No available formula with the name “android-sdk”</p>
+<p>Found a cask named “android-sdk” instead. Try</p>
+<p>brew cask install android-sdk </p>
+</blockquote>
+</li>
+<li><p>brew cask install android-sdk</p>
+<blockquote>
+<p>The “android” command is deprecated.</p>
+<p>For manual SDK, AVD, and project management, please use Android Studio.</p>
+<p>For command-line tools, use tools/bin/sdkmanager and tools/bin/avdmanager</p>
+</blockquote>
+</li>
+<li><p>brew cask uninstall android-sdk</p>
+</li>
+</ul>
+<h3 id="install-by-IntelliJ-macOS-Done"><a href="#install-by-IntelliJ-macOS-Done" class="headerlink" title="install by IntelliJ (macOS) - Done"></a>install by IntelliJ (macOS) - Done</h3><h4 id="download-sdk"><a href="#download-sdk" class="headerlink" title="download sdk"></a>download sdk</h4><ul>
+<li>open IntelliJ</li>
+<li>-&gt; Preferences</li>
+<li>-&gt; Appearance &amp; Behavior</li>
+<li>-&gt; System setting</li>
+<li>-&gt; Android SDK</li>
+<li>-&gt; Android SDK Location: xxx, click <code>Edit</code> button</li>
+<li>-&gt; select the check box and click <code>Next</code></li>
+<li>-&gt; download finished</li>
+</ul>
+<h4 id="configuration"><a href="#configuration" class="headerlink" title="configuration"></a>configuration</h4><ul>
+<li>create project page</li>
+<li>-&gt; Click <code>configure</code> button (bottom and right corner)</li>
+<li>-&gt; Structure for New Projects</li>
+<li>-&gt; Change <code>&lt;No SDK&gt;</code> to your java version(mine is 1.8)</li>
+<li>-&gt; Check Android SDK is ready in <code>Platform Settings -&gt; SDKs</code></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Kotlin</tag>
+        <tag>IntelliJ</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CAAnimation KeyPath学习</title>
+    <url>/2017/02/11/CAAnimation-KeyPath%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<table>
+<thead>
+<tr>
+<th style="text-align:left">KeyPath</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">transform.scale</td>
+<td style="text-align:left">比例变化</td>
+<td style="text-align:left">0 ~ 1</td>
+</tr>
+<tr>
+<td style="text-align:left">transform.scale.x</td>
+<td style="text-align:left">宽比例变化</td>
+<td style="text-align:left">0 ~ 1</td>
+</tr>
+<tr>
+<td style="text-align:left">transform.scale.y</td>
+<td style="text-align:left">宽比例变化</td>
+<td style="text-align:left">0 ~ 1</td>
+</tr>
+<tr>
+<td style="text-align:left">transform.rotation.x</td>
+<td style="text-align:left">围绕X轴旋转</td>
+<td style="text-align:left">0 ~  2*M_PI</td>
+</tr>
+<tr>
+<td style="text-align:left">transform.rotation.y</td>
+<td style="text-align:left">围绕Y轴旋转</td>
+<td style="text-align:left">0 ~  2*M_PI</td>
+</tr>
+<tr>
+<td style="text-align:left">transform.rotation.z</td>
+<td style="text-align:left">围绕Z轴旋转</td>
+<td style="text-align:left">0 ~  2*M_PI</td>
+</tr>
+<tr>
+<td style="text-align:left">cornerRadius</td>
+<td style="text-align:left">圆角变化</td>
+<td style="text-align:left">0 ~ 2*MAX(width,height)</td>
+</tr>
+<tr>
+<td style="text-align:left">backgroundColor</td>
+<td style="text-align:left">颜色变化，透明度不变</td>
+<td style="text-align:left"><strong><em>AnyColor.cgColor</em></strong><a href="添加在Layer上，所以要用cgColor">^1</a></td>
+</tr>
+<tr>
+<td style="text-align:left">opacity</td>
+<td style="text-align:left">透明度变化</td>
+<td style="text-align:left">0 ~ 1</td>
+</tr>
+<tr>
+<td style="text-align:left">bounds</td>
+<td style="text-align:left">大小变化，中心不变</td>
+<td style="text-align:left">CGRect</td>
+</tr>
+<tr>
+<td style="text-align:left">position</td>
+<td style="text-align:left">中心变化</td>
+<td style="text-align:left">CGPoint</td>
+</tr>
+<tr>
+<td style="text-align:left">position.x</td>
+<td style="text-align:left">中心X变化</td>
+<td style="text-align:left">CGFloat</td>
+</tr>
+<tr>
+<td style="text-align:left">position.y</td>
+<td style="text-align:left">中心Y变化</td>
+<td style="text-align:left">CGFloat</td>
+</tr>
+<tr>
+<td style="text-align:left">contents</td>
+<td style="text-align:left">内容变化 如ImageView.image</td>
+<td style="text-align:left"><strong><em>image.cgImage</em></strong><a href="添加在Layer上，所以要用cgImage">^2</a></td>
+</tr>
+<tr>
+<td style="text-align:left">borderWidth</td>
+<td style="text-align:left">边框宽</td>
+<td style="text-align:left">0 ~</td>
+</tr>
+</tbody>
+</table>
+<a id="more"></a>
+<p>示例代码如下<br><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> testView: <span class="type">UIView</span> = <span class="type">UIView</span>(frame: <span class="type">CGRect</span>(x: (<span class="type">Screen_Width</span>()-<span class="keyword">self</span>.<span class="type">View_Width</span>())/<span class="number">2</span>, y: <span class="number">100</span>, width: <span class="keyword">self</span>.<span class="type">View_Width</span>(), height: <span class="keyword">self</span>.<span class="type">View_Width</span>()))</span><br><span class="line">testView.backgroundColor = <span class="type">UIColor</span>.green</span><br><span class="line"><span class="keyword">self</span>.view.addSubview(testView)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> iv: <span class="type">UIImageView</span> = <span class="type">UIImageView</span>(frame: <span class="type">CGRect</span>(x: <span class="number">20</span>, y: <span class="number">50</span>, width: <span class="number">150</span>, height: <span class="number">200</span>))</span><br><span class="line">iv.image = <span class="type">UIImage</span>(named: <span class="string">"1.jpeg"</span>)</span><br><span class="line"><span class="keyword">self</span>.view.addSubview(iv)</span><br><span class="line"></span><br><span class="line"><span class="type">DispatchQueue</span>.main.asyncAfter(deadline: <span class="type">DispatchTime</span>.now() + <span class="number">1</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">"begin"</span>)</span><br><span class="line">    <span class="keyword">let</span> bounds: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"bounds"</span>)</span><br><span class="line">    bounds.fromValue = testView.frame</span><br><span class="line">    bounds.toValue = <span class="type">CGRect</span>(x: (<span class="type">Screen_Width</span>()-<span class="keyword">self</span>.<span class="type">View_Width</span>())/<span class="number">2</span>, y: <span class="type">Screen_Height</span>() - <span class="number">300</span>, width: <span class="number">50</span>, height: <span class="number">50</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> position: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"position.y"</span>)</span><br><span class="line">    position.fromValue = testView.center.y</span><br><span class="line">    position.toValue = <span class="type">Screen_Height</span>() - <span class="number">150</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> rotation: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"transform.rotation.x"</span>)</span><br><span class="line">    rotation.fromValue = <span class="number">0</span></span><br><span class="line">    rotation.toValue = <span class="type">M_PI</span> * <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> cornerRadius: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"cornerRadius"</span>)</span><br><span class="line">    cornerRadius.fromValue = <span class="number">0</span></span><br><span class="line">    cornerRadius.toValue = <span class="number">25</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> bgColor: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"backgroundColor"</span>)</span><br><span class="line">    bgColor.fromValue = <span class="type">UIColor</span>.green.cgColor</span><br><span class="line">    bgColor.toValue = <span class="type">UIColor</span>(red: <span class="number">0.3</span>, green: <span class="number">0.2</span>, blue: <span class="number">0.9</span>, alpha: <span class="number">0.1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> opacity: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"opacity"</span>)</span><br><span class="line">    opacity.fromValue = <span class="number">1.0</span></span><br><span class="line">    opacity.toValue = <span class="number">0.5</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> borderWidth: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"borderWidth"</span>)</span><br><span class="line">    borderWidth.fromValue = <span class="number">0</span></span><br><span class="line">    borderWidth.toValue = <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> group1: <span class="type">CAAnimationGroup</span> = <span class="type">CAAnimationGroup</span>()</span><br><span class="line">    group1.animations = [bounds, position, cornerRadius, bgColor, opacity, borderWidth]</span><br><span class="line">    group1.fillMode = kCAFillModeForwards</span><br><span class="line">    group1.isRemovedOnCompletion = <span class="literal">false</span></span><br><span class="line">    group1.duration = <span class="number">2</span></span><br><span class="line">    testView.layer.add(group1, forKey: <span class="string">"test"</span>)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> contents: <span class="type">CABasicAnimation</span> = <span class="type">CABasicAnimation</span>(keyPath: <span class="string">"contents"</span>)</span><br><span class="line">    contents.fromValue = iv.image?.cgImage</span><br><span class="line">    contents.toValue = <span class="type">UIImage</span>(named: <span class="string">"2.jpeg"</span>)?.cgImage</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> group2: <span class="type">CAAnimationGroup</span> = <span class="type">CAAnimationGroup</span>()</span><br><span class="line">    group2.animations = [contents, borderWidth]</span><br><span class="line">    group2.fillMode = kCAFillModeForwards</span><br><span class="line">    group2.isRemovedOnCompletion = <span class="literal">false</span></span><br><span class="line">    group2.duration = <span class="number">2</span></span><br><span class="line">    iv.layer.add(group2, forKey: <span class="string">"iv"</span>)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>CAAnimation中 当isRemovedOnCompletion = false 时 fillMode = kCAFillModeForwards 才会生效</p>
+<p><a href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/CoreAnimation_guide/AnimatableProperties/AnimatableProperties.html#//apple_ref/doc/uid/TP40004514-CH11-SW2" target="_blank" rel="noopener">官方参考</a></p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flutter Learning 1</title>
+    <url>/2020/05/18/Flutter-Learning-1/</url>
+    <content><![CDATA[<h2 id="Dart-study-notes"><a href="#Dart-study-notes" class="headerlink" title="Dart study notes"></a>Dart study notes</h2><ul>
+<li>All types are <code>Object</code> includes <code>function</code></li>
+<li>All types default value is <code>null</code></li>
+<li><code>??</code> syntax could prevent a null object to invoke its method or property</li>
+<li><code>this</code> means Object self</li>
+<li>Every function has return value, default is <code>null</code></li>
+<li>Every line should have a <code>;</code> </li>
+<li><code>var name = value</code> or <code>type name = value</code>  </li>
+<li>Variable: <code>var</code> and constant: <code>const / final</code>s </li>
+<li><code>final</code> means the var will set only once, and will be initialized when accessed first time. <code>const</code> is implict final but is a compile constant</li>
+<li>instance variable can be final but cannot be const ( Only static fields can be declared as const)<br><img src="/2020/05/18/Flutter-Learning-1/fl1.png" alt=""><br><img src="/2020/05/18/Flutter-Learning-1/fl2.png" alt=""></li>
+<li>Support type inferring</li>
+<li>if condition statements need round brackets</li>
+<li>Each case have to end by <code>break</code> otherwise the code will be execute fallthrouh</li>
+<li>Dart does not have <code>fallthrough</code> keyword, but support the feature</li>
+<li>Dart does not have <code>func</code> key word, and define the return type at first<a id="more"></a></li>
+<li>function support <code>=&gt;</code> single line syntax <code>type funcName(type var) =&gt; funcBody;</code></li>
+<li>Classs property has default <code>getter</code> and <code>setter</code></li>
+<li>But if the property defined a specific keyword such as <code>get</code>, then it only support getter <code>int get value =&gt; 2;</code></li>
+<li>Support <code>.?</code> but do not support <code>int?</code></li>
+<li>Construct function and named construct function can not be inherited defalut by subclass. Subclass must override it itself. <code>ClassName.name(int value) : super( name){};</code></li>
+<li>Construct function could a simple form <code>ClassName(this.value1, this.value2);</code></li>
+<li>Construct function support init property by parameters but can not use <code>this</code> keyword. <code>ClassName(Map value) : name = value[&quot;name&quot;], super(vale){};</code></li>
+<li>Inherit by <code>extends</code> keyword</li>
+<li>Mixin by <code>with</code> keyword. <code>class ClassName extends ClassName1 with Class Name2 {}</code></li>
+<li>Any class could be used as interface by <code>implements</code> keyword </li>
+<li><code>abstract</code> class is similar with <code>Protocol</code> in Swift.</li>
+<li><code>async await</code> implement asynchronism </li>
+<li>The return value type is <code>Future</code> when a function modified by <code>async</code></li>
+<li>The return value type is <code>Stream</code> when a function modified by <code>async*</code></li>
+<li><code>throw try on catch finally</code> is the keywords for exception, and finally statement must be execute.</li>
+<li>In <code>&#39;</code> String, <code>\</code> could modify some special mark such as <code>&quot;I&#39;m a student&quot;</code> and <code>&#39;I\&#39;m a student&#39;</code></li>
+<li>String could be connect by <code>+</code></li>
+<li>String support <code>$var</code> to connect new string and also support <code>${var / statement}</code> connect any other type such <code>int</code></li>
+<li>forloop support normal form but not <code>...</code> and <code>..&lt;</code></li>
+<li>function optional parameters form is <code>[ type name, type name ]</code>。 But is the form is <code>{type name, type name}</code>, optional parameters can be invoke in disorder form. </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int plus(&#123;int a = 1, int b = 2 &#125;) &#123;</span><br><span class="line">    return a + b;</span><br><span class="line">&#125;</span><br><span class="line">plus(b: 4, a: 9);</span><br><span class="line">plus(a: 3, b: 12)l</span><br><span class="line">// either is fine.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>function optional parameters could be set default value <code>type name = &quot;&quot;</code>, but unoptional parameters do not have default value.</li>
+<li><code>try catch</code> can access stack tree value，for instance <code>catch(e,s)</code>. e means exception and s means stac tree.</li>
+<li>Custom Exception <code>class myException implements Exception { String errorMessage(){ print message };}</code></li>
+<li>_ + varname default is private property</li>
+<li><code>~/</code> truncating division operator. If any of operator number is <code>Double</code>, then <code>a~/b</code> equal <code>(a/b).truncate().toInt()</code></li>
+<li>class static/class property and function default is lazy</li>
+<li>Clousure coud access its super scope property</li>
+<li>list.forEach( item { print(item); } )</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Flutter</category>
+      </categories>
+      <tags>
+        <tag>Dart</tag>
+        <tag>Flutter</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mac 终端命令学习</title>
+    <url>/2017/02/10/Mac-%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<p>大学C语言第一堂上机课，老师说：上世纪计算机大牛都不用鼠标的，Windows下可以Dos命令控制电脑上的一切，瞬间觉得逼格不是一般的高。所以刚开始自学iOS的时候，我就最先学习macOS(原来叫OSX)环境的终端命令。</p>
+<p>虽然现在也一直在用，但是很多不经常用的命令就忘记了，忽然再用的时候就比较费劲，这就再复习总结一下。</p>
+<p>如果有意愿，可以在终端下使用下面的命令进行学习：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">man 命令名称 </span><br><span class="line">man cd</span><br></pre></td></tr></table></figure>
+<p>使用后会显示当前命令的释义、用法以及参数等，可以自己学习。</p>
+<a id="more"></a>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><p>对于文件的操作是最经常用的操作。</p>
+<h2 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">mkdir</td>
+<td style="text-align:left">创建一个目录</td>
+<td style="text-align:left">mkdir dirname</td>
+</tr>
+<tr>
+<td style="text-align:center">rmdir</td>
+<td style="text-align:left">删除一个目录</td>
+<td style="text-align:left">rmdir dirname</td>
+</tr>
+<tr>
+<td style="text-align:center">mv</td>
+<td style="text-align:left">修改或移动目录或文件</td>
+<td style="text-align:left">mv dirname1 dirname2</td>
+</tr>
+<tr>
+<td style="text-align:center">rm</td>
+<td style="text-align:left">删除目录或文件</td>
+<td style="text-align:left">rm (-rf 慎用) dirname filename</td>
+</tr>
+<tr>
+<td style="text-align:center">cd</td>
+<td style="text-align:left">跳转当前目录路径</td>
+<td style="text-align:left">cd path</td>
+</tr>
+<tr>
+<td style="text-align:center">pwd</td>
+<td style="text-align:left">显示当前路径</td>
+<td style="text-align:left">pwd</td>
+</tr>
+<tr>
+<td style="text-align:center">ls</td>
+<td style="text-align:left">显示当前目录内容</td>
+<td style="text-align:left">ls</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文件操作-1"><a href="#文件操作-1" class="headerlink" title="文件操作"></a>文件操作</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">cat</td>
+<td style="text-align:left">连接和输入文件</td>
+<td style="text-align:left">cat filename1 filename2 ..</td>
+</tr>
+<tr>
+<td style="text-align:center">cp</td>
+<td style="text-align:left">拷贝文件(并可以修改文件名称)</td>
+<td style="text-align:left">cp file1 path/file2</td>
+</tr>
+<tr>
+<td style="text-align:center">file</td>
+<td style="text-align:left">查找文件的类型</td>
+<td style="text-align:left">file file1</td>
+</tr>
+<tr>
+<td style="text-align:center">open</td>
+<td style="text-align:left">默认程序打开文件</td>
+<td style="text-align:left">open file1</td>
+</tr>
+<tr>
+<td style="text-align:center">head</td>
+<td style="text-align:left">显示文件头几行</td>
+<td style="text-align:left">head -number file1</td>
+</tr>
+<tr>
+<td style="text-align:center">tail</td>
+<td style="text-align:left">显示文件头后行</td>
+<td style="text-align:left">tail -number file1</td>
+</tr>
+<tr>
+<td style="text-align:center">diff</td>
+<td style="text-align:left">比较两个文件</td>
+<td style="text-align:left">diff file1 file2</td>
+</tr>
+<tr>
+<td style="text-align:center">wc</td>
+<td style="text-align:left">查找文件的字、行、字符、比特数</td>
+<td style="text-align:left">wc [-w、-l、-m、-c] file1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cd-path-拼接符号"><a href="#cd-path-拼接符号" class="headerlink" title="cd path 拼接符号"></a>cd path 拼接符号</h2><p>cd 搭配以下符号跳转目录路径</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">/</td>
+<td style="text-align:left">连接路径 搭配 ‘.’或dirname 使用</td>
+<td style="text-align:left">cd ./test/</td>
+</tr>
+<tr>
+<td style="text-align:center">.</td>
+<td style="text-align:left">当前目录</td>
+<td style="text-align:left">cd ./ 还是当前目录</td>
+</tr>
+<tr>
+<td style="text-align:center">..</td>
+<td style="text-align:left">上级目录</td>
+<td style="text-align:left">cd ../.. 上上级目录</td>
+</tr>
+<tr>
+<td style="text-align:center">/</td>
+<td style="text-align:left">根目录</td>
+<td style="text-align:left">cd /User/username/Desktop</td>
+</tr>
+<tr>
+<td style="text-align:center">~</td>
+<td style="text-align:left">用户目录  等于/User/username</td>
+<td style="text-align:left">cd ~/Desktop</td>
+</tr>
+</tbody>
+</table>
+<h1 id="安全操作"><a href="#安全操作" class="headerlink" title="安全操作"></a>安全操作</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">passwd</td>
+<td style="text-align:left">修改用户密码</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">chmod</td>
+<td style="text-align:left">修改目录或文件权限</td>
+<td style="text-align:left">chmod ug+x filename</td>
+</tr>
+<tr>
+<td style="text-align:left">umask</td>
+<td style="text-align:left">定义创建文件的权限掩码</td>
+<td style="text-align:left">umask 027 （027要转换2进制）</td>
+</tr>
+<tr>
+<td style="text-align:left">chown</td>
+<td style="text-align:left">改变文件或目录的属主和组</td>
+<td style="text-align:left">chown newowner file</td>
+</tr>
+<tr>
+<td style="text-align:left">chgrp</td>
+<td style="text-align:left">改变文件或目录的属组</td>
+<td style="text-align:left">chown newowner file</td>
+</tr>
+</tbody>
+</table>
+<h1 id="时间操作"><a href="#时间操作" class="headerlink" title="时间操作"></a>时间操作</h1><table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">date</td>
+<td style="text-align:left">显示或者设置日期和时间</td>
+<td style="text-align:left">date</td>
+</tr>
+<tr>
+<td style="text-align:left">cal</td>
+<td style="text-align:left">显示当前日历</td>
+<td style="text-align:left">cal</td>
+</tr>
+<tr>
+<td style="text-align:left">time</td>
+<td style="text-align:left">命令执行时间</td>
+<td style="text-align:left">time</td>
+</tr>
+</tbody>
+</table>
+<h1 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h1><p>一些可能会用的操作</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">命令名</th>
+<th style="text-align:left">功能描述</th>
+<th style="text-align:left">例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">history</td>
+<td style="text-align:left">最近执行的命令历史及其编号</td>
+<td style="text-align:left">history</td>
+</tr>
+<tr>
+<td style="text-align:left">clear</td>
+<td style="text-align:left">清除屏幕或窗口内容</td>
+<td style="text-align:left">(command+L也能实现)</td>
+</tr>
+<tr>
+<td style="text-align:left">env</td>
+<td style="text-align:left">显示当前所有设置过的环境变量</td>
+<td style="text-align:left">env</td>
+</tr>
+<tr>
+<td style="text-align:left">who</td>
+<td style="text-align:left">列出当前登录的所有用户</td>
+<td style="text-align:left">who</td>
+</tr>
+<tr>
+<td style="text-align:left">whoami</td>
+<td style="text-align:left">显示当前正进行操作的用户名</td>
+<td style="text-align:left">whoami</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>macOS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Method boundingRectWithSize get wrong height</title>
+    <url>/2020/04/17/Method-boundingRectWithSize-get-wrong-height/</url>
+    <content><![CDATA[<p>The calculation for the height of a label in Swift is different with OC.<br>Here are some reasons may lead a wrong result of the method boundingRectWithSize.</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="function"><span class="keyword">func</span> <span class="title">boundingRect</span><span class="params">(with size: CGSize, options: NSStringDrawingOptions = [], attributes: [NSAttributedString.Key : Any]? = <span class="literal">nil</span>, context: NSStringDrawingContext?)</span></span> -&gt; <span class="type">CGRect</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>let options: NSStringDrawingOptions = [.usesLineFragmentOrigin, .usesFontLeading]</p>
+<p>Set the options paramater to a multiple value</p>
+</li>
+<li><p>Get the final value by the method of  <em>ceilf</em> in Swfit</p>
+</li>
+<li><p>Replace the \n and \t. Or add an extra height such as Height + [\n, \t].count * lineHeight</p>
+</li>
+</ol>
+<a id="more"></a>
+<p>Below are two extensions for String and UILabel respectively</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">height</span><span class="params">(with size: CGSize, font: UIFont)</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> nsstring = <span class="type">NSString</span>(string: <span class="keyword">self</span>)</span><br><span class="line">        <span class="keyword">let</span> options: <span class="type">NSStringDrawingOptions</span> = [.usesLineFragmentOrigin,.usesFontLeading]</span><br><span class="line">        <span class="keyword">return</span> <span class="type">CGFloat</span>(ceilf(<span class="type">Float</span>(nsstring.boundingRect(with: size, options: options, attributes: [.font: font], context: <span class="literal">nil</span>).size.height)))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UILabel</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">textHeight</span><span class="params">(with width: CGFloat)</span></span> -&gt; <span class="type">CGFloat</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> txt = <span class="keyword">self</span>.text &#123;</span><br><span class="line">            <span class="keyword">return</span> txt.height(with: <span class="type">CGSize</span>(width: width, height: <span class="type">CGFloat</span>(<span class="type">MAXFLOAT</span>)), font: <span class="keyword">self</span>.font)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Objective-C class的理解</title>
+    <url>/2017/03/30/Objective-C-class%E7%9A%84%E7%90%86%E8%A7%A3/</url>
+    <content><![CDATA[<p>以下是学习总结了Objc一些底层的知识，大部分都来源于runtime中。<br><a href="https://opensource.apple.com/source/objc4/objc4-493.9/runtime/" target="_blank" rel="noopener">Objc 源码</a><br><a href="http://opensource.apple.com/tarballs/objc4/objc4-493.9.tar.gz" target="_blank" rel="noopener">源码 下载链接</a></p>
+<h1 id="object-和-class"><a href="#object-和-class" class="headerlink" title="object 和 class"></a>object 和 class</h1><p>以上两段是来源于objc中的两个文件的源码，我们可以找到 object 和 class 的定义。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 来源: objc/objc.h</span><br><span class="line">#if !OBJC_TYPES_DEFINED</span><br><span class="line">/// An opaque type that represents an Objective-C class.</span><br><span class="line">typedef struct objc_class *Class;</span><br><span class="line"></span><br><span class="line">/// Represents an instance of a class.</span><br><span class="line">struct objc_object &#123;</span><br><span class="line">Class isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">/// A pointer to an instance of a class.</span><br><span class="line">typedef struct objc_object *id;</span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 来源: objc/runtime.h</span><br><span class="line">struct objc_class &#123;</span><br><span class="line">Class isa  OBJC_ISA_AVAILABILITY;</span><br><span class="line"></span><br><span class="line">#if !__OBJC2__</span><br><span class="line">Class super_class                                        OBJC2_UNAVAILABLE;</span><br><span class="line">const char *name                                         OBJC2_UNAVAILABLE;</span><br><span class="line">long version                                             OBJC2_UNAVAILABLE;</span><br><span class="line">long info                                                OBJC2_UNAVAILABLE;</span><br><span class="line">long instance_size                                       OBJC2_UNAVAILABLE;</span><br><span class="line">struct objc_ivar_list *ivars                             OBJC2_UNAVAILABLE;</span><br><span class="line">struct objc_method_list **methodLists                    OBJC2_UNAVAILABLE;</span><br><span class="line">struct objc_cache *cache                                 OBJC2_UNAVAILABLE;</span><br><span class="line">struct objc_protocol_list *protocols                     OBJC2_UNAVAILABLE;</span><br><span class="line">#endif</span><br><span class="line"></span><br><span class="line">&#125; OBJC2_UNAVAILABLE;</span><br><span class="line">/* Use `Class` instead of `struct objc_class *` */</span><br></pre></td></tr></table></figure>
+<p>从上面两段代码可以得知：<br>1-1、<code>Class</code> 是 <code>objc_class</code> 结构体类型的指针；<br>1-2、<code>objc_object</code> 结构体只包含一个Class定义的 <code>isa</code> 变量，<code>isa</code> 又是一个 <code>objc_class</code> 结构体类型；<br>1-3、<code>id</code> 是 <code>objc_object</code> 结构体类型的指针。<br>2-1、<code>objc_class</code> 结构体包含一个Class定义的<code>isa</code> 变量，同上。</p>
+<a id="more"></a>
+<p>总结一下 可以得出：<br>1、<code>class</code> 是 <code>struct</code><br>2、<code>objc_class</code> 和 <code>objc_object</code> 几乎一样。那么我们就可以这么认为： <em><code>id</code>可以认为是 <code>objc_class</code> 的结构体指针</em>，<em><code>class</code> 也可以认为是 <code>objc_object</code> 的结构体指针</em>。最后总结 <strong><em><code>class</code>也是对象</em></strong>，那我们就能说，<code>object</code>是<code>object</code>，<code>class</code>也是<code>object</code>。</p>
+<p>作为区分，我们分别称之为“实例对象(instance object)”、“类对象(class object)”。实例对象结构体中的isa指针指向所属的类对象，类对象结构体中的isa指针指向指向的也是其所属的类对象，它的名字叫做元类(metaclass)。根据文章<a href="http://www.cocoawithlove.com/2010/01/what-is-meta-class-in-objective-c.html" target="_blank" rel="noopener">What is a meta-class in Objective-C?</a>中的例子与解释，我们可以看到在调用runtime中的objc_allocateClassPair方法时，生成了一对<code>class</code>，分别是 <code>class</code> 和 <code>metaclass</code>。<br>3、<code>objc_class</code> 中包含了 <code>ivar</code> <code>method</code> 的列表，所以我们可以理解为 <code>class</code> 中存储了实例变量 和 实例方法，<code>metaclass</code> 中存储了类变量 和 类方法。<br>4、<code>objc_class</code>中有一个<code>super_class</code>的变量，它则指向自己的父类，根类的super则指向NULL。</p>
+<h1 id="metaclass"><a href="#metaclass" class="headerlink" title="metaclass"></a>metaclass</h1><p>从上面可以看出，<code>metaclass</code>也是一个对象，它的isa指针指向的是什么呢？通过文章<a href="http://www.cocoawithlove.com/2010/01/what-is-meta-class-in-objective-c.html" target="_blank" rel="noopener">What is a meta-class in Objective-C?</a>中的例子，我们能了解到<code>metaclass</code>的isa指向的是它的根<code>metaclass</code>。根<code>metaclass</code>的isa则指向它自己。</p>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>以上说的比较混乱，下面贴上一个流传甚广的一张解释图。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2181684-c5a2771145784fed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>以上</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>OC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Swift interview questions 1</title>
+    <url>/2020/04/20/Swift-interview-questions-1/</url>
+    <content><![CDATA[<h2 id="What-are-value-type-and-reference-type-and-its-differences-How-to-choose"><a href="#What-are-value-type-and-reference-type-and-its-differences-How-to-choose" class="headerlink" title="What are value type and reference type, and its differences? How to choose?"></a>What are value type and reference type, and its differences? How to choose?</h2><p>Basicly, value type usually defined as Enum, Struct, Tuple and Base value type(Int, Float, Array, String, Dictionary). One the other hand, reference type defined as Class and Clousure(Block).</p>
+<blockquote>
+<p>The most basic distinguishing feature of a <em>value type</em> is that copying — the effect of assignment, initialization, and argument passing — creates an <em>independent instance</em> with its own unique copy of its data.</p>
+<p>Copying a reference, on the other hand, implicitly creates a shared instance. After a copy, two variables then refer to a single instance of the data, so modifying data in the second variable also affects the original,</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>The benefits of the value type is you could always get a unique and copied instance immediately and you do not need to worry about its value will be alter in multiple tasks.</p>
+<p>However, values and references act exactly the same way when instances have no writable data.</p>
+<p>Value type</p>
+<ul>
+<li>get individual data </li>
+<li>deep copy</li>
+<li>When you want to change the property of a value type object, you should create a <em>var</em> variable/object. Otherwise you can not update its property value even if the property type is “var”, because “let” make the whole object to be immutable.</li>
+</ul>
+<p>Reference type</p>
+<ul>
+<li>share data with a same memory address </li>
+<li>shallow copy</li>
+<li><em>Class</em> can be inherited by a subcalss.</li>
+</ul>
+<h3 id="How-to-choose"><a href="#How-to-choose" class="headerlink" title="How to choose"></a>How to choose</h3><p>Use a value type when:</p>
+<ul>
+<li>Comparing instance data with == makes sense</li>
+<li>You want copies to have independent state</li>
+<li>The data will be used in code across multiple threads</li>
+</ul>
+<p>Use a reference type (e.g. use a class) when:</p>
+<ul>
+<li>Comparing instance identity with === makes sense</li>
+<li>You want to create shared, mutable state</li>
+</ul>
+<h3 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h3><h4 id="mutating"><a href="#mutating" class="headerlink" title="mutating"></a>mutating</h4><p>Value type method must have <em>mutating</em> prefix</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">change</span><span class="params">(<span class="number">_</span> value: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.value = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="nonmutating"><a href="#nonmutating" class="headerlink" title="nonmutating"></a>nonmutating</h4><p>Usyally, nonmutating always work together with set in a computed property</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="number">2</span> &#125;</span><br><span class="line">        <span class="keyword">nonmutating</span> <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="comment">/// do something with out altering self value such as:</span></span><br><span class="line">            <span class="built_in">print</span>(newValue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> t = <span class="type">Test</span>()</span><br><span class="line">t.value = <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a href="">https://developer.apple.com/swift/blog/?id=10</a></p>
+]]></content>
+      <categories>
+        <category>Interviews</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>Interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Swift interview questions 2</title>
+    <url>/2020/04/21/Swift-interview-questions-2/</url>
+    <content><![CDATA[<h2 id="What-is-the-difference-between-let-and-var"><a href="#What-is-the-difference-between-let-and-var" class="headerlink" title="What is the difference between let and var"></a>What is the difference between let and var</h2><p>The difference is does a variable value can be changed after initiation or not. Obviously let can not altered.</p>
+<h2 id="What-are-the-differences-between-OC-const-and-Swift-let"><a href="#What-are-the-differences-between-OC-const-and-Swift-let" class="headerlink" title="What are the differences between OC const and Swift let?"></a>What are the differences between OC const and Swift let?</h2><p><em>let</em> has the same effet with <em>const</em> on a varable.</p>
+<a id="more"></a>
+<h2 id="What-is-Optional-and-which-problem-does-optional-solve"><a href="#What-is-Optional-and-which-problem-does-optional-solve" class="headerlink" title="What is Optional and which problem does optional solve?"></a>What is Optional and which problem does optional solve?</h2><p>Optional is an unwrapped variable type which has two conditions - nil and a value. It provides an option if we do not want assign a variable immediately.</p>
+<p>And in some cases, you can’t avoid getting optional values. For examples:</p>
+<ul>
+<li>convert a variable to another value type such Int(string)</li>
+<li>try catch error</li>
+<li>initialize an instance</li>
+<li>solve the strong reference cycle problem by weak</li>
+</ul>
+<h2 id="How-many-ways-to-unwrap-an-optional-value"><a href="#How-many-ways-to-unwrap-an-optional-value" class="headerlink" title="How many ways to unwrap an optional value?"></a>How many ways to unwrap an optional value?</h2><ol>
+<li>optional binding, safe<ul>
+<li>guard</li>
+<li>let</li>
+<li>while</li>
+<li>as?</li>
+</ul>
+</li>
+<li>force unwrap, but not safe</li>
+<li>!= nil, but code consumption</li>
+<li>nil coalescing operator <em>??</em></li>
+</ol>
+<h2 id="What-are-the-difference-between-nil-and-none"><a href="#What-are-the-difference-between-nil-and-none" class="headerlink" title="What are the difference between nil and .none?"></a>What are the difference between nil and .none?</h2><ul>
+<li>Nil just means nothing or none value</li>
+<li>.none is one of a value of an enum</li>
+</ul>
+<h2 id="Explain-how-they-differ-between-a-static-and-a-class-member"><a href="#Explain-how-they-differ-between-a-static-and-a-class-member" class="headerlink" title="Explain how they differ between a static and a class member?"></a>Explain how they differ between a static and a class member?</h2><ul>
+<li>static can be used in Class, Struct and Enum</li>
+<li>class can be overridden by a subClass</li>
+<li>the class modifier only can be used for methods and computed properties(kind of method)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Interviews</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>Interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Swift interview questions 3</title>
+    <url>/2020/05/09/Swift-interview-questions-3/</url>
+    <content><![CDATA[<h2 id="What-are-generics-and-which-problem-do-they-solve"><a href="#What-are-generics-and-which-problem-do-they-solve" class="headerlink" title="What are generics and which problem do they solve?"></a>What are generics and which problem do they solve?</h2><blockquote>
+<p>Generic is a style of computer programming in which algorithms are written in terms of types to-be-specified-later that are then instantiated when needed for specific types provided as parameters - Wiki</p>
+</blockquote>
+<p>Generics help developers to create a function or a type without assigning a specific value type which means they could be created once but used on different types, such as Array. </p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line">@frozen <span class="keyword">public</span> <span class="class"><span class="keyword">struct</span> <span class="title">Array</span>&lt;<span class="title">Element</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Generic-function"><a href="#Generic-function" class="headerlink" title="Generic function"></a>Generic function</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">sum</span>&lt;Element&gt;<span class="params">(<span class="number">_</span> a: Element, <span class="number">_</span> b: Element)</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Generic-type"><a href="#Generic-type" class="headerlink" title="Generic type"></a>Generic type</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Stack</span>&lt;<span class="title">Element</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> items = [<span class="type">Element</span>]()</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">push</span><span class="params">(<span class="number">_</span> item: Element)</span></span> &#123;</span><br><span class="line">        items.append(item)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">pop</span><span class="params">()</span></span> -&gt; <span class="type">Element</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> items.removeLast()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>Stack</code> is a generic type which means it have the ability, like Array, to create any value or reference type Stack </p>
+<h3 id="Generic-type-extension"><a href="#Generic-type-extension" class="headerlink" title="Generic type extension"></a>Generic type extension</h3><figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Stack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> topItem: <span class="type">Element</span>? &#123;</span><br><span class="line">        <span class="keyword">return</span> items.isEmpty ? <span class="literal">nil</span> : items[items.<span class="built_in">count</span> - <span class="number">1</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Type-constraint"><a href="#Type-constraint" class="headerlink" title="Type constraint"></a>Type constraint</h3><p>Sometimes, it’s useful to enforce certain type constraints on the types that can be used with generic functions and generic types. </p>
+<p>Syntax:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">someFunction</span>&lt;T: SomeClass, U: SomeProtocol&gt;<span class="params">(someT: T, someU: U)</span></span> &#123;</span><br><span class="line">    <span class="comment">// function body goes here</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>You can define your own type constraints when creating custom generic types, and these constraints provide much of the power of generic programming. Abstract concepts like Hashable characterize types in terms of their conceptual characteristics, rather than their concrete type. - <a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html" target="_blank" rel="noopener">Swift Generics</a></p>
+</blockquote>
+<h3 id="Associated-Types"><a href="#Associated-Types" class="headerlink" title="Associated Types"></a>Associated Types</h3><blockquote>
+<p>When defining a protocol, it’s sometimes useful to declare one or more associated types as part of the protocol’s definition. An associated type gives a placeholder name to a type that is used as part of the protocol. The actual type to use for that associated type isn’t specified until the protocol is adopted. Associated types are specified with the associatedtype keyword - <a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html" target="_blank" rel="noopener">Swift Generics</a></p>
+</blockquote>
+<p>Example:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123; </span><br><span class="line">    associatedtype <span class="type">Item</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">append</span><span class="params">(<span class="number">_</span> item: Item)</span></span></span><br><span class="line">    <span class="keyword">var</span> <span class="built_in">count</span>: <span class="type">Int</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">    <span class="keyword">subscript</span>(i: <span class="type">Int</span>) -&gt; <span class="type">Item</span> &#123; <span class="keyword">get</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Associated Type also has the ability to adopt constraints, for example:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">Container</span> </span>&#123; </span><br><span class="line">    associatedtype <span class="type">Item</span>: <span class="type">Equatable</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And more complex form is:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">SuffixableContainer</span>: <span class="title">Container</span> </span>&#123;</span><br><span class="line">    associatedtype <span class="type">Suffix</span>: <span class="type">SuffixableContainer</span> <span class="keyword">where</span> <span class="type">Suffix</span>.<span class="type">Item</span> == <span class="type">Item</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">suffix</span><span class="params">(<span class="number">_</span> size: Int)</span></span> -&gt; <span class="type">Suffix</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>As we can see from above, <code>Suffix</code> conform this protocol and the protocol super protocol has an associated type <code>Item</code>. </p>
+<h3 id="Generic-Where-Clauses"><a href="#Generic-Where-Clauses" class="headerlink" title="Generic Where Clauses"></a>Generic Where Clauses</h3><p>Where clauses is useful to define requirements for type constraints and associated types.</p>
+<p>generic where clauses also can be used for an extension.</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Stack</span> <span class="title">where</span> <span class="title">Element</span>: <span class="title">Equatable</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Generic-Subscripts"><a href="#Generic-Subscripts" class="headerlink" title="Generic Subscripts"></a>Generic Subscripts</h3><blockquote>
+<p>Subscripts can be generic, and they can include generic where clauses - <a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html" target="_blank" rel="noopener">Swift Generics</a></p>
+</blockquote>
+<h2 id="What-is-the-difference-between-a-typealias-and-an-associatedtype-with-a-value-in-a-protocol"><a href="#What-is-the-difference-between-a-typealias-and-an-associatedtype-with-a-value-in-a-protocol" class="headerlink" title="What is the difference between a typealias and an associatedtype with a value in a protocol?"></a>What is the difference between a typealias and an associatedtype with a value in a protocol?</h2><h3 id="typealias"><a href="#typealias" class="headerlink" title="typealias"></a>typealias</h3><p>Literally, <code>typealias</code> is an alias for an existing type. It can be useful in making your code more readable. However, it just a named alias of an existing type not a new type.</p>
+<p>Usage:</p>
+<ul>
+<li><p>Reuse clousure</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">Completion</span> = () -&gt; <span class="type">Void</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Conform to multiple protocols</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">Codable</span> = <span class="type">Decodable</span> &amp; <span class="type">Encodable</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="associatedtype"><a href="#associatedtype" class="headerlink" title="associatedtype"></a>associatedtype</h3><p>As showd above, an associated type gives a placeholder name to a type that is used as part of the protocol. The actual type to use for that associated type isn’t specified until the protocol is adopted.</p>
+<p>associatedtype can be override by a subclass or subprotocol, like:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">P</span> </span>&#123; associatedtype <span class="type">A</span> &#125;</span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">P1</span>: <span class="title">P</span> </span>&#123;  <span class="comment">// first example</span></span><br><span class="line">    associatedtype <span class="type">A</span> = <span class="type">Int</span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="class"><span class="keyword">protocol</span> <span class="title">P2</span>: <span class="title">P1</span> </span>&#123;</span><br><span class="line">    associatedtype <span class="type">A</span> = <span class="type">String</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Reference:</p>
+<ul>
+<li><a href="https://forums.swift.org/t/typealias-overriding-associated-type-not-in-fact-better-expressed-as-same-type-constraint/11530/2" target="_blank" rel="noopener">associated type</a></li>
+<li><a href="https://www.avanderlee.com/swift/typealias-usage-swift/" target="_blank" rel="noopener">typealias usage swift</a></li>
+<li><a href="https://docs.swift.org/swift-book/LanguageGuide/Generics.html" target="_blank" rel="noopener">Swift Documents</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>Interviews</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>Interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>iOS StatusBar 控制</title>
+    <url>/2018/01/11/iOS-StatusBar-%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="本文只提供一种方法，总共三个步骤"><a href="#本文只提供一种方法，总共三个步骤" class="headerlink" title="本文只提供一种方法，总共三个步骤"></a>本文只提供一种方法，总共三个步骤</h1><p><em>只讨论 iOS Version &gt;= 7.0</em></p>
+<h3 id="1、info-plist-设置"><a href="#1、info-plist-设置" class="headerlink" title="1、info.plist 设置"></a>1、info.plist 设置</h3><p>open as sources code</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;key&gt;UIViewControllerBasedStatusBarAppearance&lt;/key&gt;</span><br><span class="line">&lt;true/&gt;</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<p>open as property list</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">View controller-based status bar appearance  YES</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2、ViewController-containers-add-Extension-SubClass"><a href="#2、ViewController-containers-add-Extension-SubClass" class="headerlink" title="2、ViewController containers add Extension/SubClass"></a>2、ViewController containers add Extension/SubClass</h3><p>一般我们用UINavigationController或者UITabBarController来做Container，当存在 UINavigationController或者UITabBarController 时，系统只会调用Container的方法，而忽略ViewController 的方法。 所以我们需要为Container添加Extension，或者子类。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">open override var childViewControllerForStatusBarStyle: UIViewController? &#123;</span><br><span class="line">    return self.topViewController</span><br><span class="line">&#125;</span><br><span class="line">open override var childViewControllerForStatusBarHidden: UIViewController? &#123;</span><br><span class="line">    return self.topViewController</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3、ViewControllers-add-setting-method"><a href="#3、ViewControllers-add-setting-method" class="headerlink" title="3、ViewControllers add setting method"></a>3、ViewControllers add setting method</h3><p>三个分别设置 style hidden animation 的方法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">override var preferredStatusBarStyle: UIStatusBarStyle &#123;</span><br><span class="line">    return .default // .lightContent</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">override var prefersStatusBarHidden: Bool &#123;</span><br><span class="line">    return true // false</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation &#123;</span><br><span class="line">    return .fade // .none .slide</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4、Update-statusBar-when-vc-has-appeared"><a href="#4、Update-statusBar-when-vc-has-appeared" class="headerlink" title="4、Update statusBar when vc has appeared"></a>4、Update statusBar when vc has appeared</h3><p>当控制器已经出现的时候需要修改时，调用下面的方法即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">func updateStatusBarStyle() &#123;</span><br><span class="line">    self.setNeedsStatusBarAppearanceUpdate()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">override var preferredStatusBarStyle: UIStatusBarStyle &#123;</span><br><span class="line">     return self.statusBarStyle</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>OC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>unowned and weak in Swift</title>
+    <url>/2020/04/14/unowned-and-weak-in-Swift/</url>
+    <content><![CDATA[<p>The differece between <strong>weak</strong> and <strong>unowned</strong> is does the block have an async function which will be re-invoke in future.</p>
+<a id="more"></a>
+<p>Here is the sample colde:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typealias</span> <span class="type">IntBlock</span> = (<span class="number">_</span> int: <span class="type">Int</span>) -&gt; ()</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AAA</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> bbb: <span class="type">BBB</span></span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        bbb = <span class="type">BBB</span>()</span><br><span class="line">        bbb.block = &#123;<span class="comment">/* below */</span> v <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>.value = v</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BBB</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> block:<span class="type">IntBlock</span>?</span><br><span class="line">    <span class="keyword">init</span>() &#123;</span><br><span class="line">        <span class="keyword">self</span>.weakfunc()</span><br><span class="line">        <span class="keyword">self</span>.unownedfunc()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">weakfunc</span><span class="params">()</span></span> &#123; <span class="comment">// here! [weak self]</span></span><br><span class="line">        <span class="type">DispatchQueue</span>.main.asyncAfter(deadline: .now() + <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> block = <span class="keyword">self</span>.block &#123; block(<span class="number">1</span>) &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">unownedfunc</span><span class="params">()</span></span> &#123; <span class="comment">// here! [unownd self]</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> block = <span class="keyword">self</span>.block &#123; block(<span class="number">2</span>) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is a simple way to understand which one is better for your code.</p>
+<p>For more infomation:</p>
+<p>*<a href="https://swift.gg/2017/05/16/unowned-or-weak-lifetime-and-performance/" target="_blank" rel="noopener">Unowned 还是 Weak？生命周期和性能对比</a></p>
+<p>*<a href="https://mjtsai.com/blog/2015/11/24/how-swift-implements-unowned-and-weak-references/" target="_blank" rel="noopener">How Swift Implements Unowned and Weak References</a></p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>同步 异步概念理解</title>
+    <url>/2017/03/23/%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3-1/</url>
+    <content><![CDATA[<h2 id="1、-同步-amp-异步-串行-amp-并行"><a href="#1、-同步-amp-异步-串行-amp-并行" class="headerlink" title="1、 同步&amp;异步 串行&amp;并行"></a>1、 同步&amp;异步 串行&amp;并行</h2><p>以上两两相对的概念是比较容易理解的，一旦混合起来使用就容易错误。下面是我的个人理解。</p>
+<p>串行就是顺序执行（在一个线程中执行任务），并行相对应的不是顺序执行（会创建不同的线程去执行任务）。<br>同步需要等待执行，有结果才会返回，异步相对应的不会等待结果，任何时候有结果再返回都可以。</p>
+<a id="more"></a>
+<blockquote>
+<p>不管是串行队列（SerialQueue）还是并发队列（ConcurrencyQueue），都是FIFO队列。也就意味着，任务一定是一个一个地，按照先进先出的顺序来执行。</p>
+</blockquote>
+<p>串行队列下，不管是同步还是异步都是按照顺序的的执行，异步只是不在当前现成。<br>并行队列下，同步执行时因为需要等待，所以就在一个线程里执行就变成了串行的执行结果；异步执行并不需要等待而且系统会创建不同的线程去执行，不同线程中任务执行时间并不确定。（GCD可以通过信号量设置并行队列最大执行数，因为过多创建线程也会影响性能）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//定义一个信号量，初始化为10</span><br><span class="line">dispatch_semaphore_t semaphore = dispatch_semaphore_create(10);</span><br><span class="line"></span><br><span class="line">//同时执行100个任务</span><br><span class="line">for (int i = 0; i &lt; 100; i++)</span><br><span class="line">&#123;</span><br><span class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</span><br><span class="line"></span><br><span class="line">//当前信号量-1</span><br><span class="line">dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;任务%d执行&quot;,i+1);</span><br><span class="line">NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:kUrlString]];</span><br><span class="line"></span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">//TODO:刷新界面</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//当前信号量+1</span><br><span class="line">dispatch_semaphore_signal(semaphore);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">//来源 http://www.jianshu.com/p/ea72d1ded383</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-1、图示"><a href="#1-1、图示" class="headerlink" title="1-1、图示"></a>1-1、图示</h3><p>串行 并行 + 同步<br><img src="http://upload-images.jianshu.io/upload_images/2181684-49e9096cfae9d790.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="串行 并行 + 同步.jpg"></p>
+<p>串行 异步<br><img src="http://upload-images.jianshu.io/upload_images/2181684-ab076a45be7916ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="串行 + 异步.jpg"></p>
+<p>并行 异步</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2181684-5e2c7c0d770f68c5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="并行 + 异步.jpg"></p>
+<h3 id="1-2、示例代码"><a href="#1-2、示例代码" class="headerlink" title="1-2、示例代码"></a>1-2、示例代码</h3><p>分别是 串行队列 “同步执行，异步执行” 和 并行队列 “同步执行，异步执行”<br>先执行同步和先执行异步结果也是不一样的，从结果我们可以看出，<strong><em>当前线程创建一个同步执行的串行\并行队列都会使当前线程阻塞</em></strong>，一定要慎用。iOS中千万注意是不是主线程是否使用了同步。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)serialQueue1 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;serialQueue1&quot;, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 - %@&quot;,[NSDate date]);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 1 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 2 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 3 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)serialQueue2 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;serialQueue2&quot;, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 - %@&quot;,[NSDate date]);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 1 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 2 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">NSLog(@&quot;serialQueue 异步 3 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 执行结果 串行队列，先同步执行</span><br><span class="line">2017-03-23 18:38:31.069 QUEUE[4001:169705] serialQueue 同步 - 2017-03-23 10:38:31 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:32.069 QUEUE[4001:169705] serialQueue 同步 1 2017-03-23 10:38:32 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:34.070 QUEUE[4001:169705] serialQueue 同步 2 2017-03-23 10:38:34 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:35.072 QUEUE[4001:169705] serialQueue 同步 3 2017-03-23 10:38:35 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:35.072 QUEUE[4001:169705] serialQueue 异步 - 2017-03-23 10:38:35 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:36.076 QUEUE[4001:169752] serialQueue 异步 1 2017-03-23 10:38:36 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:38:38.082 QUEUE[4001:169752] serialQueue 异步 2 2017-03-23 10:38:38 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:38:38.083 QUEUE[4001:169752] serialQueue 异步 3 2017-03-23 10:38:38 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">// 执行结果 串行队列，先异步执行</span><br><span class="line">2017-03-23 18:45:08.531 QUEUE[4102:173791] serialQueue 异步 - 2017-03-23 10:45:08 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:08.531 QUEUE[4102:173791] serialQueue 同步 - 2017-03-23 10:45:08 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:09.533 QUEUE[4102:173791] serialQueue 同步 1 2017-03-23 10:45:09 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:09.536 QUEUE[4102:173832] serialQueue 异步 1 2017-03-23 10:45:09 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:11.535 QUEUE[4102:173791] serialQueue 同步 2 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:11.541 QUEUE[4102:173832] serialQueue 异步 2 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:11.542 QUEUE[4102:173832] serialQueue 异步 3 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:12.536 QUEUE[4102:173791] serialQueue 同步 3 2017-03-23 10:45:12 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)concurrentQueue1 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;concurrentQueue1&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 - %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 1 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 2 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 3 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)concurrentQueue2 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;concurrentQueue2&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 - %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 1 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 2 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 3 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 执行结果 并行队列，先同步执行</span><br><span class="line">2017-03-23 19:09:52.637 QUEUE[4519:191342] concurrentQueue 同步 - 2017-03-23 11:09:52 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:53.638 QUEUE[4519:191342] concurrentQueue 同步 1 2017-03-23 11:09:53 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:55.640 QUEUE[4519:191342] concurrentQueue 同步 2 2017-03-23 11:09:55 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.642 QUEUE[4519:191342] concurrentQueue 同步 3 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.642 QUEUE[4519:191342] concurrentQueue 异步 - 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.643 QUEUE[4519:191406] concurrentQueue 异步 3 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x61800007c740&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 19:09:57.645 QUEUE[4519:191388] concurrentQueue 异步 1 2017-03-23 11:09:57 +0000,&lt;NSThread: 0x600000260080&gt;&#123;number = 4, name = (null)&#125;</span><br><span class="line">2017-03-23 19:09:58.648 QUEUE[4519:191391] concurrentQueue 异步 2 2017-03-23 11:09:58 +0000,&lt;NSThread: 0x600000260040&gt;&#123;number = 5, name = (null)&#125;</span><br><span class="line"></span><br><span class="line">// 执行结果 并行队列，先异步执行</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189774] concurrentQueue 异步 - 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189774] concurrentQueue 同步 - 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189822] concurrentQueue 异步 3 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x600000262380&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:44.660 QUEUE[4474:189774] concurrentQueue 同步 1 2017-03-23 11:08:44 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:44.660 QUEUE[4474:189820] concurrentQueue 异步 1 2017-03-23 11:08:44 +0000,&lt;NSThread: 0x618000267300&gt;&#123;number = 4, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:45.662 QUEUE[4474:189833] concurrentQueue 异步 2 2017-03-23 11:08:45 +0000,&lt;NSThread: 0x6100002626c0&gt;&#123;number = 5, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:46.661 QUEUE[4474:189774] concurrentQueue 同步 2 2017-03-23 11:08:46 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:47.663 QUEUE[4474:189774] concurrentQueue 同步 3 2017-03-23 11:08:47 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、同步-amp-异步-阻塞-amp-非阻塞"><a href="#2、同步-amp-异步-阻塞-amp-非阻塞" class="headerlink" title="2、同步&amp;异步 阻塞&amp;非阻塞"></a>2、同步&amp;异步 阻塞&amp;非阻塞</h2><h3 id="2-1、知乎"><a href="#2-1、知乎" class="headerlink" title="2-1、知乎"></a>2-1、知乎</h3><blockquote>
+<p>老张爱喝茶，废话不说，煮开水。出场人物：老张，水壶两把（普通水壶，简称水壶；会响的水壶，简称响水壶）。<br>1 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻<br>2 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）<br>老张还是觉得自己有点傻，于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。<br>3 老张把响水壶放到火上，立等水开。（异步阻塞）<br>老张觉得这样傻等意义不大<br>4 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）<br>老张觉得自己聪明了。</p>
+</blockquote>
+<blockquote>
+<p>所谓同步异步，只是对于水壶而言。普通水壶，同步；响水壶，异步。虽然都能干活，但响水壶可以在自己完工之后，提示老张水开了。这是普通水壶所不能及的。同步只能让调用者去轮询自己（情况2中），造成老张效率的低下。所谓阻塞非阻塞，仅仅对于老张而言。立等的老张，阻塞；看电视的老张，非阻塞。情况1和情况3中老张就是阻塞的，媳妇喊他都不知道。虽然3中响水壶是异步的，可对于立等的老张没有太大的意义。所以一般异步是配合非阻塞使用的，这样才能发挥异步的效用。<br>作者：愚抄<br>链接：<a href="https://www.zhihu.com/question/19732473/answer/23434554" target="_blank" rel="noopener">https://www.zhihu.com/question/19732473/answer/23434554</a><br>更多答案 <a href="https://www.zhihu.com/question/19732473" target="_blank" rel="noopener">https://www.zhihu.com/question/19732473</a></p>
+</blockquote>
+<h3 id="2-2、伯乐在线"><a href="#2-2、伯乐在线" class="headerlink" title="2-2、伯乐在线"></a>2-2、伯乐在线</h3><blockquote>
+<p>同步/异步主要针对C端:<br>同步：<br>所谓同步，就是在c端发出一个功能调用时，在没有得到结果之前，该调用就不返回。也就是必须一件一件事做，等前一件做完了才能做下一件事。<br>例如普通B/S模式（同步）：提交请求-&gt;等待服务器处理-&gt;处理完毕返回 这个期间客户端浏览器不能干任何事<br>异步：<br>异步的概念和同步相对。当c端一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。<br>例如 ajax请求（异步）: 请求通过事件触发-&gt;服务器处理（这是浏览器仍然可以作其他事情）-&gt;处理完毕<br>阻塞/非阻塞主要针对S端:<br>阻塞<br>阻塞调用是指调用结果返回之前，当前线程会被挂起（线程进入非可执行状态，在这个状态下，cpu不会给线程分配时间片，即线程暂停运行）。函数只有在得到结果之后才会返回。<br>有人也许会把阻塞调用和同步调用等同起来，实际上他是不同的。对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回而已。 例如，我们在socket中调用recv函数，如果缓冲区中没有数据，这个函数就会一直等待，直到有数据才返回。而此时，当前线程还会继续处理各种各样的消息。<br>快递的例子：比如到你某个时候到A楼一层（假如是内核缓冲区）取快递，但是你不知道快递什么时候过来，你又不能干别的事，只能死等着。但你可以睡觉（进程处于休眠状态），因为你知道快递把货送来时一定会给你打个电话（假定一定能叫醒你）。<br>非阻塞<br>非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。<br>还是等快递的例子：如果用忙轮询的方法，每隔5分钟到A楼一层(内核缓冲区）去看快递来了没有。如果没来，立即返回。而快递来了，就放在A楼一层，等你去取。<br>来源 <a href="http://blog.jobbole.com/103290/?repeat=w3tc" target="_blank" rel="noopener">http://blog.jobbole.com/103290/?repeat=w3tc</a></p>
+</blockquote>
+<p>上面的两个分析中，知乎的例子更好理解，但是解释对象伯乐在线更对。同步异步应该是对老张而言，阻塞非阻塞是对水壶而言</p>
+<blockquote>
+<p>1)阻塞I/O（blocking I/O）<br>2)非阻塞I/O （nonblocking I/O）<br>3) I/O复用(select 和poll) （I/O multiplexing）<br>4)信号驱动I/O （signal driven I/O (SIGIO)）<br>5)异步I/O （asynchronous I/O (the POSIX aio_functions)）<br>前四种都是同步，只有最后一种才是异步IO。</p>
+</blockquote>
+<p>以上两部分都有关于 Linux下的五种I/O模型的解释</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>OC</tag>
+        <tag>concurrency</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>正则学习总结</title>
+    <url>/2018/09/09/%E6%AD%A3%E5%88%99%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</url>
+    <content><![CDATA[<h1 id="内容总结"><a href="#内容总结" class="headerlink" title="内容总结"></a>内容总结</h1><p>*<a href="http://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">来源 正则30分钟入门教程</a></p>
+<h2 id="基本元字符"><a href="#基本元字符" class="headerlink" title="基本元字符"></a>基本元字符</h2><p>^ 查找的字符串的开头<br>$ 匹配结尾(^和$ 多行情况下 匹配行的开始处和结束处)<br>\b 单词的开头或结尾，也就是单词的分界处<br>\B 匹配不是单词开头或结束的位置 (反义)<br>\d 一位数字(0，或1，或2，或……)<br>\D 匹配任意非数字的字符 (反义)<br>\s 任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等<br>\S 匹配任意不是空白符的字符(反义)<br>\w 字母或数字或下划线或汉字<br>\W 匹配任意不是字母，数字，下划线，汉字的字符(反义)<br>. 除了换行符以外的任意字符<br>* *前边的内容可以连续重复使用任意次(可能是0次)<br>+ 重复1次或更多次<br>? 重复零次或一次<br>{2} 必须连续重复匹配2次<br>{2,} 重复2次或更多次<br>{5,12} 重复的次数不能少于5次，不能多于12次</p>
+<a id="more"></a>
+<p>[aeiou] 匹配任何一个英文元音字母<br>[.?!] 匹配标点符号(.或?或!)<br>[0-9] 代表的含意与\d就是完全一致的：一位数字<br>[a-z0-9A-Z_] 也完全等同于\w（如果只考虑英文的话）<br>[^x] 匹配除了x以外的任意字符 (反义)<br>[^aeiou] 匹配除了aeiou这几个字母以外的任意字符 (反义)</p>
+<h2 id="零宽断言"><a href="#零宽断言" class="headerlink" title="零宽断言"></a>零宽断言</h2><p>(?=exp) 匹配exp前面的位置,例如 \b\w+(?=ing\b) 如查找I’m singing while you’re dancing.时，它会匹配sing和danc。<br>(?&lt;=exp) 匹配exp后面的位置，例如 (?&lt;=\bre)\w+\b 如在查找reading a book时，它匹配ading。</p>
+<h2 id="懒惰"><a href="#懒惰" class="headerlink" title="懒惰"></a>懒惰</h2><p>*? 重复任意次，但尽可能少重复<br>+? 重复1次或更多次，但尽可能少重复<br>?? 重复0次或1次，但尽可能少重复<br>{n,m}? 重复n到m次，但尽可能少重复<br>{n,}? 重复n次以上，但尽可能少重复</p>
+<p>以上</p>
+]]></content>
+      <categories>
+        <category>Summary</category>
+      </categories>
+      <tags>
+        <tag>regex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自定义操作符</title>
+    <url>/2017/02/09/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%93%8D%E4%BD%9C%E7%AC%A6/</url>
+    <content><![CDATA[<p>在Swift中，自定义操作符就是简单的二步：首先在全局使用operator关键字来声明操作符，同时用prefix、infix或postfix来声明操作符的位置；然后在所需要的类/结构体中实现操作符。</p>
+<a id="more"></a>
+<p>概括一下就是，声明+实现。</p>
+<p>自定义操作符需要以两类字符开头：</p>
+<ul>
+<li>ASCII字符中的/, =, -, +, !, *, %, &lt;, &gt;, &amp;, |, ^, ?, ~</li>
+</ul>
+<p>如我自己写的正则判断例子</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> =~</span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">func</span> =~<span class="params">(str: String, matchs: String)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">try</span> <span class="type">RegexHelper</span>(matchs).match(str)</span><br><span class="line">    &#125; <span class="keyword">catch</span> <span class="number">_</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Unicode中的Mathematical Operators, Miscellaneous Symbols和Dingbats Unicode blocks这些字符中的字符，然后后面允许使用组合的Unicode字符</li>
+</ul>
+<p>如微博①中的例子</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> ★+</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector2D</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x: <span class="type">CGFloat</span></span><br><span class="line">    <span class="keyword">var</span> y: <span class="type">CGFloat</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Vector2D</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> ★+ <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Vector2D</span>(x: <span class="keyword">left</span>.x + <span class="keyword">right</span>.x, y: <span class="keyword">left</span>.y + <span class="keyword">right</span>.y)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vector1 = <span class="type">Vector2D</span>(x: <span class="number">10</span>, y: <span class="number">20</span>)</span><br><span class="line"><span class="keyword">let</span> vector2 = <span class="type">Vector2D</span>(x: <span class="number">30</span>, y: <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vector = vector1 ★+ vector2</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(vector)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果: Vector2D(x: 40.0, y: 30.0)</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html#//apple_ref/doc/uid/TP40014097-CH27-ID28" target="_blank" rel="noopener">参考1</a></p>
+<p><a href="https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/LexicalStructure.html#//apple_ref/doc/uid/TP40014097-CH30-ID418" target="_blank" rel="noopener">参考2</a></p>
+<p>其中参考2中<br><img src="/2017/02/09/自定义操作符/trunks-1-1.png" alt=""><br>意思就是如果以dot(.)开头，运算符后面可以包含dot(.)，如果不是dot(.)开头则不可以再包含dot(.)。</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">infix</span> <span class="keyword">operator</span> .+.</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Vector2D</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> x: <span class="type">CGFloat</span></span><br><span class="line">    <span class="keyword">var</span> y: <span class="type">CGFloat</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Vector2D</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> .+. <span class="params">(<span class="keyword">left</span>: Vector2D, <span class="keyword">right</span>: Vector2D)</span></span> -&gt; <span class="type">Vector2D</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="type">Vector2D</span>(x: <span class="keyword">left</span>.x + <span class="keyword">right</span>.x, y: <span class="keyword">left</span>.y + <span class="keyword">right</span>.y)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vector1 = <span class="type">Vector2D</span>(x: <span class="number">10</span>, y: <span class="number">20</span>)</span><br><span class="line"><span class="keyword">let</span> vector2 = <span class="type">Vector2D</span>(x: <span class="number">30</span>, y: <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> vector = vector1 .+. vector2</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(vector)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出结果: Vector2D(x: 40.0, y: 30.0)</span></span><br></pre></td></tr></table></figure>
+<p>错误如下图<br><img src="/2017/02/09/自定义操作符/trunks-1-2.png" alt=""></p>
+<p>来源：</p>
+<p>① <a href="http://weibo.com/touristdiary?refer_flag=1001030103_" target="_blank" rel="noopener">@南峰子_老驴</a> 微博中的 #iOS知识小集# Tag</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>iOS</tag>
+      </tags>
+  </entry>
+</search>
