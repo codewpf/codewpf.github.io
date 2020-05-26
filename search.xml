@@ -523,6 +523,34 @@
       </tags>
   </entry>
   <entry>
+    <title>NSTextAttachment tips</title>
+    <url>/2020/05/26/NSTextAttachment-tips/</url>
+    <content><![CDATA[<h2 id="NSTextAttachment-image-setup-failed"><a href="#NSTextAttachment-image-setup-failed" class="headerlink" title="NSTextAttachment image setup failed"></a>NSTextAttachment image setup failed</h2><p>Today I got a problem with my project. When I add an attachment(Image) to an attribute string, the image is not in right form - black filled circle. </p>
+<a id="more"></a>
+<p>As shown below:<br><img src="/2020/05/26/NSTextAttachment-tips/image1.png" alt=""><br>But it’s original image is:<br><img src="/2020/05/26/NSTextAttachment-tips/image2.png" alt=""></p>
+<p>And my code is:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> plusRange = text.range(of: <span class="string">"+"</span>), <span class="keyword">let</span> image = <span class="type">UIImage</span>(named: <span class="string">"name"</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> attachment = <span class="type">NSTextAttachment</span>(image: image)</span><br><span class="line">    attachment.bounds = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">19</span>, height: <span class="number">19</span>)</span><br><span class="line">    <span class="keyword">let</span> attImage = <span class="type">NSAttributedString</span>(attachment: attachment)</span><br><span class="line">    <span class="keyword">let</span> loc = text.<span class="built_in">distance</span>(from: text.startIndex, to: plusRange.lowerBound)</span><br><span class="line">    att.insert(attImage, at: loc)</span><br><span class="line">    att.deleteCharacters(<span class="keyword">in</span>: <span class="type">NSRange</span>(location: loc + <span class="number">1</span>, length: <span class="number">1</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>I tried several ways to fix it, but did not work. Then I found the definition of the property <code>image</code> which shows:</p>
+<blockquote>
+<p>Image representing the text attachment contents. Modifying this property invalidates -contents, -fileType, and -FileWrapper properties.</p>
+</blockquote>
+<p>So I assigned the image at a new line, like:</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> plusRange = text.range(of: <span class="string">"+"</span>), <span class="keyword">let</span> image = <span class="type">UIImage</span>(named: <span class="string">"name"</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> attachment = <span class="type">NSTextAttachment</span>()</span><br><span class="line">    attachment.image = image</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>It works!</p>
+<p>I think Xcode may give a wrong suggestion because I checked the definition of NSTextAttachment. It shows that the convenience init method show up as an extension method in the file of  <code>UIImage</code> which belongs <code>UIKit</code>. Moreover, ths init method is available in iOS 13.0. And no further information for the method.</p>
+<p>So when you gonna to insert a image into an attribute string, you’d better assigning the image by the property <code>image</code>.</p>
+<h2 id="Another-issue-image-baseline"><a href="#Another-issue-image-baseline" class="headerlink" title="Another issue - image baseline"></a>Another issue - image baseline</h2><p>Except last one, there also a layout issue I noticed. After setted, the image will be in a right form. But its baseline is not equal with text. I am very lucky that find the way to solve the issue. As you can see, I change the <code>y</code> to <code>-3</code>. Becase the value is positive number, image base will be upper than normal. It can be included that the <code>y</code> start from bottom to top. </p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> plusRange = text.range(of: <span class="string">"+"</span>), <span class="keyword">let</span> image = <span class="type">UIImage</span>(named: <span class="string">"name"</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">    attachment.bounds = <span class="type">CGRect</span>(x: <span class="number">0</span>, y: -<span class="number">3</span>, width: <span class="number">19</span>, height: <span class="number">19</span>)</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>Tips</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Objective-C class的理解</title>
     <url>/2017/03/30/Objective-C-class%E7%9A%84%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<p>以下是学习总结了Objc一些底层的知识，大部分都来源于runtime中。<br><a href="https://opensource.apple.com/source/objc4/objc4-493.9/runtime/" target="_blank" rel="noopener">Objc 源码</a><br><a href="http://opensource.apple.com/tarballs/objc4/objc4-493.9.tar.gz" target="_blank" rel="noopener">源码 下载链接</a></p>
