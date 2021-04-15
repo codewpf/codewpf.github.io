@@ -576,54 +576,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Swift interview questions 1</title>
-    <url>/2020/04/20/Swift-interview-questions-1/</url>
-    <content><![CDATA[<h2 id="What-are-value-type-and-reference-type-and-its-differences-How-to-choose"><a href="#What-are-value-type-and-reference-type-and-its-differences-How-to-choose" class="headerlink" title="What are value type and reference type, and its differences? How to choose?"></a>What are value type and reference type, and its differences? How to choose?</h2><p>Basicly, value type usually defined as Enum, Struct, Tuple and Base value type(Int, Float, Array, String, Dictionary). One the other hand, reference type defined as Class and Clousure(Block).</p>
-<blockquote>
-<p>The most basic distinguishing feature of a <em>value type</em> is that copying — the effect of assignment, initialization, and argument passing — creates an <em>independent instance</em> with its own unique copy of its data.</p>
-<p>Copying a reference, on the other hand, implicitly creates a shared instance. After a copy, two variables then refer to a single instance of the data, so modifying data in the second variable also affects the original,</p>
-</blockquote>
-<a id="more"></a>
-<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>The benefits of the value type is you could always get a unique and copied instance immediately and you do not need to worry about its value will be alter in multiple tasks.</p>
-<p>However, values and references act exactly the same way when instances have no writable data.</p>
-<p>Value type</p>
-<ul>
-<li>get individual data </li>
-<li>deep copy</li>
-<li>When you want to change the property of a value type object, you should create a <em>var</em> variable/object. Otherwise you can not update its property value even if the property type is “var”, because “let” make the whole object to be immutable.</li>
-</ul>
-<p>Reference type</p>
-<ul>
-<li>share data with a same memory address </li>
-<li>shallow copy</li>
-<li><em>Class</em> can be inherited by a subcalss.</li>
-</ul>
-<h3 id="How-to-choose"><a href="#How-to-choose" class="headerlink" title="How to choose"></a>How to choose</h3><p>Use a value type when:</p>
-<ul>
-<li>Comparing instance data with == makes sense</li>
-<li>You want copies to have independent state</li>
-<li>The data will be used in code across multiple threads</li>
-</ul>
-<p>Use a reference type (e.g. use a class) when:</p>
-<ul>
-<li>Comparing instance identity with === makes sense</li>
-<li>You want to create shared, mutable state</li>
-</ul>
-<h3 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h3><h4 id="mutating"><a href="#mutating" class="headerlink" title="mutating"></a>mutating</h4><p>Value type method must have <em>mutating</em> prefix</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">change</span><span class="params">(<span class="number">_</span> value: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.value = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="nonmutating"><a href="#nonmutating" class="headerlink" title="nonmutating"></a>nonmutating</h4><p>Usyally, nonmutating always work together with set in a computed property</p>
-<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="number">2</span> &#125;</span><br><span class="line">        <span class="keyword">nonmutating</span> <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="comment">/// do something with out altering self value such as:</span></span><br><span class="line">            <span class="built_in">print</span>(newValue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> t = <span class="type">Test</span>()</span><br><span class="line">t.value = <span class="number">3</span></span><br></pre></td></tr></table></figure>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a href="">https://developer.apple.com/swift/blog/?id=10</a></p>
-]]></content>
-      <categories>
-        <category>Interviews</category>
-      </categories>
-      <tags>
-        <tag>Swift</tag>
-        <tag>Interview</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Method boundingRectWithSize get wrong height</title>
     <url>/2020/04/17/Method-boundingRectWithSize-get-wrong-height/</url>
     <content><![CDATA[<p>The calculation for the height of a label in Swift is different with OC.<br>Here are some reasons may lead a wrong result of the method boundingRectWithSize.</p>
@@ -677,6 +629,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Navigation segment Bar</title>
+    <url>/2021/04/15/Navigation-segment-Bar/</url>
+    <content><![CDATA[<h1 id="Add-a-Segment-Control-just-under-the-Navigation-Bar"><a href="#Add-a-Segment-Control-just-under-the-Navigation-Bar" class="headerlink" title="Add a Segment Control just under the Navigation Bar"></a>Add a Segment Control just under the Navigation Bar</h1><p>The reason I want to implement a segment control just under the navigation bar is I notice that Apple’s official app, App Store Connect, has a great user experience regarding combine segment control and navigation bar together. And my project just has similar requirements.</p>
+<a id="more"></a>
+<p>The screenshot just as you can see from below. And you may try it yourself if you are interested.<br><img src="/2021/04/15/Navigation-segment-Bar/screenshots.JPEG" alt=""></p>
+<p>I searched on <a href="https://stackoverflow.com/" target="_blank" rel="noopener">Stackoverflow</a>, but didn’t find a perfect solution. And it seems that Apple does not provide its API to be public about this. </p>
+<p>I tried different ways on my own, but none of them is a perfect copy of App Store Connect. </p>
+<h1 id="My-solution"><a href="#My-solution" class="headerlink" title="My solution"></a>My solution</h1><p>Here are the best ways I ever tried, in my opinion.</p>
+<ol>
+<li>Customize your Navigation Bar which is inherited by <code>UINavigationBar</code></li>
+<li>Add <code>frame</code> observer on <code>_UINavigationBarLargeTitleView</code> and <code>alpha</code> observer on <code>_UINavigationBarContentView</code> sub title label to calculate <code>color</code></li>
+<li>Init a <code>UINavigationController</code> with your Navigation Bar</li>
+<li>Add a <code>UISegmentControl</code> in a <code>UIBarButtonItem</code> </li>
+<li>Init a <code>UIToolbar</code> with the Bar Button Item and set it to be the first section header of a table</li>
+<li>Set the toolbar top shadow line to nil and add another one to the bottom</li>
+<li>Assign your navigation bar block to update the toolbar tint color and the shadow line alpha value</li>
+</ol>
+<p>The result is not 100% the same as App Store Connect but met my request for temporary. </p>
+<p><a href="https://github.com/codewpf/WPFNavigationSegmentBar" target="_blank" rel="noopener">Code Download</a></p>
+<p><img src="/2021/04/15/Navigation-segment-Bar/final.gif" alt=""></p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>UI</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Objective-C class的理解</title>
     <url>/2017/03/30/Objective-C-class%E7%9A%84%E7%90%86%E8%A7%A3/</url>
     <content><![CDATA[<p>以下是学习总结了Objc一些底层的知识，大部分都来源于runtime中。<br><a href="https://opensource.apple.com/source/objc4/objc4-493.9/runtime/" target="_blank" rel="noopener">Objc 源码</a><br><a href="http://opensource.apple.com/tarballs/objc4/objc4-493.9.tar.gz" target="_blank" rel="noopener">源码 下载链接</a></p>
@@ -697,6 +679,98 @@
       </categories>
       <tags>
         <tag>OC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Swift interview questions 1</title>
+    <url>/2020/04/20/Swift-interview-questions-1/</url>
+    <content><![CDATA[<h2 id="What-are-value-type-and-reference-type-and-its-differences-How-to-choose"><a href="#What-are-value-type-and-reference-type-and-its-differences-How-to-choose" class="headerlink" title="What are value type and reference type, and its differences? How to choose?"></a>What are value type and reference type, and its differences? How to choose?</h2><p>Basicly, value type usually defined as Enum, Struct, Tuple and Base value type(Int, Float, Array, String, Dictionary). One the other hand, reference type defined as Class and Clousure(Block).</p>
+<blockquote>
+<p>The most basic distinguishing feature of a <em>value type</em> is that copying — the effect of assignment, initialization, and argument passing — creates an <em>independent instance</em> with its own unique copy of its data.</p>
+<p>Copying a reference, on the other hand, implicitly creates a shared instance. After a copy, two variables then refer to a single instance of the data, so modifying data in the second variable also affects the original,</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>The benefits of the value type is you could always get a unique and copied instance immediately and you do not need to worry about its value will be alter in multiple tasks.</p>
+<p>However, values and references act exactly the same way when instances have no writable data.</p>
+<p>Value type</p>
+<ul>
+<li>get individual data </li>
+<li>deep copy</li>
+<li>When you want to change the property of a value type object, you should create a <em>var</em> variable/object. Otherwise you can not update its property value even if the property type is “var”, because “let” make the whole object to be immutable.</li>
+</ul>
+<p>Reference type</p>
+<ul>
+<li>share data with a same memory address </li>
+<li>shallow copy</li>
+<li><em>Class</em> can be inherited by a subcalss.</li>
+</ul>
+<h3 id="How-to-choose"><a href="#How-to-choose" class="headerlink" title="How to choose"></a>How to choose</h3><p>Use a value type when:</p>
+<ul>
+<li>Comparing instance data with == makes sense</li>
+<li>You want copies to have independent state</li>
+<li>The data will be used in code across multiple threads</li>
+</ul>
+<p>Use a reference type (e.g. use a class) when:</p>
+<ul>
+<li>Comparing instance identity with === makes sense</li>
+<li>You want to create shared, mutable state</li>
+</ul>
+<h3 id="Extension"><a href="#Extension" class="headerlink" title="Extension"></a>Extension</h3><h4 id="mutating"><a href="#mutating" class="headerlink" title="mutating"></a>mutating</h4><p>Value type method must have <em>mutating</em> prefix</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">mutating</span> <span class="function"><span class="keyword">func</span> <span class="title">change</span><span class="params">(<span class="number">_</span> value: Int)</span></span> &#123;</span><br><span class="line">        <span class="keyword">self</span>.value = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="nonmutating"><a href="#nonmutating" class="headerlink" title="nonmutating"></a>nonmutating</h4><p>Usyally, nonmutating always work together with set in a computed property</p>
+<figure class="highlight swift"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value: <span class="type">Int</span> &#123;</span><br><span class="line">        <span class="keyword">get</span> &#123; <span class="keyword">return</span> <span class="number">2</span> &#125;</span><br><span class="line">        <span class="keyword">nonmutating</span> <span class="keyword">set</span> &#123;</span><br><span class="line">            <span class="comment">/// do something with out altering self value such as:</span></span><br><span class="line">            <span class="built_in">print</span>(newValue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> t = <span class="type">Test</span>()</span><br><span class="line">t.value = <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a href="">https://developer.apple.com/swift/blog/?id=10</a></p>
+]]></content>
+      <categories>
+        <category>Interviews</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>Interview</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Swift interview questions 2</title>
+    <url>/2020/04/21/Swift-interview-questions-2/</url>
+    <content><![CDATA[<h2 id="What-is-the-difference-between-let-and-var"><a href="#What-is-the-difference-between-let-and-var" class="headerlink" title="What is the difference between let and var"></a>What is the difference between let and var</h2><p>The difference is does a variable value can be changed after initiation or not. Obviously let can not altered.</p>
+<h2 id="What-are-the-differences-between-OC-const-and-Swift-let"><a href="#What-are-the-differences-between-OC-const-and-Swift-let" class="headerlink" title="What are the differences between OC const and Swift let?"></a>What are the differences between OC const and Swift let?</h2><p><em>let</em> has the same effet with <em>const</em> on a varable.</p>
+<a id="more"></a>
+<h2 id="What-is-Optional-and-which-problem-does-optional-solve"><a href="#What-is-Optional-and-which-problem-does-optional-solve" class="headerlink" title="What is Optional and which problem does optional solve?"></a>What is Optional and which problem does optional solve?</h2><p>Optional is an unwrapped variable type which has two conditions - nil and a value. It provides an option if we do not want assign a variable immediately.</p>
+<p>And in some cases, you can’t avoid getting optional values. For examples:</p>
+<ul>
+<li>convert a variable to another value type such Int(string)</li>
+<li>try catch error</li>
+<li>initialize an instance</li>
+<li>solve the strong reference cycle problem by weak</li>
+</ul>
+<h2 id="How-many-ways-to-unwrap-an-optional-value"><a href="#How-many-ways-to-unwrap-an-optional-value" class="headerlink" title="How many ways to unwrap an optional value?"></a>How many ways to unwrap an optional value?</h2><ol>
+<li>optional binding, safe<ul>
+<li>guard</li>
+<li>let</li>
+<li>while</li>
+<li>as?</li>
+</ul>
+</li>
+<li>force unwrap, but not safe</li>
+<li>!= nil, but code consumption</li>
+<li>nil coalescing operator <em>??</em></li>
+</ol>
+<h2 id="What-are-the-difference-between-nil-and-none"><a href="#What-are-the-difference-between-nil-and-none" class="headerlink" title="What are the difference between nil and .none?"></a>What are the difference between nil and .none?</h2><ul>
+<li>Nil just means nothing or none value</li>
+<li>.none is one of a value of an enum</li>
+</ul>
+<h2 id="Explain-how-they-differ-between-a-static-and-a-class-member"><a href="#Explain-how-they-differ-between-a-static-and-a-class-member" class="headerlink" title="Explain how they differ between a static and a class member?"></a>Explain how they differ between a static and a class member?</h2><ul>
+<li>static can be used in Class, Struct and Enum</li>
+<li>class can be overridden by a subClass</li>
+<li>the class modifier only can be used for methods and computed properties(kind of method)</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Interviews</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>Interview</tag>
       </tags>
   </entry>
   <entry>
@@ -763,50 +837,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Swift interview questions 2</title>
-    <url>/2020/04/21/Swift-interview-questions-2/</url>
-    <content><![CDATA[<h2 id="What-is-the-difference-between-let-and-var"><a href="#What-is-the-difference-between-let-and-var" class="headerlink" title="What is the difference between let and var"></a>What is the difference between let and var</h2><p>The difference is does a variable value can be changed after initiation or not. Obviously let can not altered.</p>
-<h2 id="What-are-the-differences-between-OC-const-and-Swift-let"><a href="#What-are-the-differences-between-OC-const-and-Swift-let" class="headerlink" title="What are the differences between OC const and Swift let?"></a>What are the differences between OC const and Swift let?</h2><p><em>let</em> has the same effet with <em>const</em> on a varable.</p>
-<a id="more"></a>
-<h2 id="What-is-Optional-and-which-problem-does-optional-solve"><a href="#What-is-Optional-and-which-problem-does-optional-solve" class="headerlink" title="What is Optional and which problem does optional solve?"></a>What is Optional and which problem does optional solve?</h2><p>Optional is an unwrapped variable type which has two conditions - nil and a value. It provides an option if we do not want assign a variable immediately.</p>
-<p>And in some cases, you can’t avoid getting optional values. For examples:</p>
-<ul>
-<li>convert a variable to another value type such Int(string)</li>
-<li>try catch error</li>
-<li>initialize an instance</li>
-<li>solve the strong reference cycle problem by weak</li>
-</ul>
-<h2 id="How-many-ways-to-unwrap-an-optional-value"><a href="#How-many-ways-to-unwrap-an-optional-value" class="headerlink" title="How many ways to unwrap an optional value?"></a>How many ways to unwrap an optional value?</h2><ol>
-<li>optional binding, safe<ul>
-<li>guard</li>
-<li>let</li>
-<li>while</li>
-<li>as?</li>
-</ul>
-</li>
-<li>force unwrap, but not safe</li>
-<li>!= nil, but code consumption</li>
-<li>nil coalescing operator <em>??</em></li>
-</ol>
-<h2 id="What-are-the-difference-between-nil-and-none"><a href="#What-are-the-difference-between-nil-and-none" class="headerlink" title="What are the difference between nil and .none?"></a>What are the difference between nil and .none?</h2><ul>
-<li>Nil just means nothing or none value</li>
-<li>.none is one of a value of an enum</li>
-</ul>
-<h2 id="Explain-how-they-differ-between-a-static-and-a-class-member"><a href="#Explain-how-they-differ-between-a-static-and-a-class-member" class="headerlink" title="Explain how they differ between a static and a class member?"></a>Explain how they differ between a static and a class member?</h2><ul>
-<li>static can be used in Class, Struct and Enum</li>
-<li>class can be overridden by a subClass</li>
-<li>the class modifier only can be used for methods and computed properties(kind of method)</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Interviews</category>
-      </categories>
-      <tags>
-        <tag>Swift</tag>
-        <tag>Interview</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>iOS StatusBar 控制</title>
     <url>/2018/01/11/iOS-StatusBar-%E6%8E%A7%E5%88%B6/</url>
     <content><![CDATA[<h1 id="本文只提供一种方法，总共三个步骤"><a href="#本文只提供一种方法，总共三个步骤" class="headerlink" title="本文只提供一种方法，总共三个步骤"></a>本文只提供一种方法，总共三个步骤</h1><p><em>只讨论 iOS Version &gt;= 7.0</em></p>
@@ -848,6 +878,47 @@
       </categories>
       <tags>
         <tag>Swift</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>同步 异步概念理解</title>
+    <url>/2017/03/23/%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3-1/</url>
+    <content><![CDATA[<h2 id="1、-同步-amp-异步-串行-amp-并行"><a href="#1、-同步-amp-异步-串行-amp-并行" class="headerlink" title="1、 同步&amp;异步 串行&amp;并行"></a>1、 同步&amp;异步 串行&amp;并行</h2><p>以上两两相对的概念是比较容易理解的，一旦混合起来使用就容易错误。下面是我的个人理解。</p>
+<p>串行就是顺序执行（在一个线程中执行任务），并行相对应的不是顺序执行（会创建不同的线程去执行任务）。<br>同步需要等待执行，有结果才会返回，异步相对应的不会等待结果，任何时候有结果再返回都可以。</p>
+<a id="more"></a>
+<blockquote>
+<p>不管是串行队列（SerialQueue）还是并发队列（ConcurrencyQueue），都是FIFO队列。也就意味着，任务一定是一个一个地，按照先进先出的顺序来执行。</p>
+</blockquote>
+<p>串行队列下，不管是同步还是异步都是按照顺序的的执行，异步只是不在当前现成。<br>并行队列下，同步执行时因为需要等待，所以就在一个线程里执行就变成了串行的执行结果；异步执行并不需要等待而且系统会创建不同的线程去执行，不同线程中任务执行时间并不确定。（GCD可以通过信号量设置并行队列最大执行数，因为过多创建线程也会影响性能）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//定义一个信号量，初始化为10</span><br><span class="line">dispatch_semaphore_t semaphore = dispatch_semaphore_create(10);</span><br><span class="line"></span><br><span class="line">//同时执行100个任务</span><br><span class="line">for (int i = 0; i &lt; 100; i++)</span><br><span class="line">&#123;</span><br><span class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</span><br><span class="line"></span><br><span class="line">//当前信号量-1</span><br><span class="line">dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;任务%d执行&quot;,i+1);</span><br><span class="line">NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:kUrlString]];</span><br><span class="line"></span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">//TODO:刷新界面</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//当前信号量+1</span><br><span class="line">dispatch_semaphore_signal(semaphore);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">//来源 http://www.jianshu.com/p/ea72d1ded383</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-1、图示"><a href="#1-1、图示" class="headerlink" title="1-1、图示"></a>1-1、图示</h3><p>串行 并行 + 同步<br><img src="http://upload-images.jianshu.io/upload_images/2181684-49e9096cfae9d790.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="串行 并行 + 同步.jpg"></p>
+<p>串行 异步<br><img src="http://upload-images.jianshu.io/upload_images/2181684-ab076a45be7916ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="串行 + 异步.jpg"></p>
+<p>并行 异步</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2181684-5e2c7c0d770f68c5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="并行 + 异步.jpg"></p>
+<h3 id="1-2、示例代码"><a href="#1-2、示例代码" class="headerlink" title="1-2、示例代码"></a>1-2、示例代码</h3><p>分别是 串行队列 “同步执行，异步执行” 和 并行队列 “同步执行，异步执行”<br>先执行同步和先执行异步结果也是不一样的，从结果我们可以看出，<strong><em>当前线程创建一个同步执行的串行\并行队列都会使当前线程阻塞</em></strong>，一定要慎用。iOS中千万注意是不是主线程是否使用了同步。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)serialQueue1 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;serialQueue1&quot;, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 - %@&quot;,[NSDate date]);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 1 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 2 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 3 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)serialQueue2 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;serialQueue2&quot;, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 - %@&quot;,[NSDate date]);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 1 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 2 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">NSLog(@&quot;serialQueue 异步 3 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 执行结果 串行队列，先同步执行</span><br><span class="line">2017-03-23 18:38:31.069 QUEUE[4001:169705] serialQueue 同步 - 2017-03-23 10:38:31 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:32.069 QUEUE[4001:169705] serialQueue 同步 1 2017-03-23 10:38:32 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:34.070 QUEUE[4001:169705] serialQueue 同步 2 2017-03-23 10:38:34 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:35.072 QUEUE[4001:169705] serialQueue 同步 3 2017-03-23 10:38:35 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:35.072 QUEUE[4001:169705] serialQueue 异步 - 2017-03-23 10:38:35 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:36.076 QUEUE[4001:169752] serialQueue 异步 1 2017-03-23 10:38:36 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:38:38.082 QUEUE[4001:169752] serialQueue 异步 2 2017-03-23 10:38:38 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:38:38.083 QUEUE[4001:169752] serialQueue 异步 3 2017-03-23 10:38:38 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">// 执行结果 串行队列，先异步执行</span><br><span class="line">2017-03-23 18:45:08.531 QUEUE[4102:173791] serialQueue 异步 - 2017-03-23 10:45:08 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:08.531 QUEUE[4102:173791] serialQueue 同步 - 2017-03-23 10:45:08 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:09.533 QUEUE[4102:173791] serialQueue 同步 1 2017-03-23 10:45:09 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:09.536 QUEUE[4102:173832] serialQueue 异步 1 2017-03-23 10:45:09 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:11.535 QUEUE[4102:173791] serialQueue 同步 2 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:11.541 QUEUE[4102:173832] serialQueue 异步 2 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:11.542 QUEUE[4102:173832] serialQueue 异步 3 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:12.536 QUEUE[4102:173791] serialQueue 同步 3 2017-03-23 10:45:12 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)concurrentQueue1 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;concurrentQueue1&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 - %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 1 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 2 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 3 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)concurrentQueue2 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;concurrentQueue2&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 - %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 1 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 2 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 3 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 执行结果 并行队列，先同步执行</span><br><span class="line">2017-03-23 19:09:52.637 QUEUE[4519:191342] concurrentQueue 同步 - 2017-03-23 11:09:52 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:53.638 QUEUE[4519:191342] concurrentQueue 同步 1 2017-03-23 11:09:53 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:55.640 QUEUE[4519:191342] concurrentQueue 同步 2 2017-03-23 11:09:55 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.642 QUEUE[4519:191342] concurrentQueue 同步 3 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.642 QUEUE[4519:191342] concurrentQueue 异步 - 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.643 QUEUE[4519:191406] concurrentQueue 异步 3 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x61800007c740&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 19:09:57.645 QUEUE[4519:191388] concurrentQueue 异步 1 2017-03-23 11:09:57 +0000,&lt;NSThread: 0x600000260080&gt;&#123;number = 4, name = (null)&#125;</span><br><span class="line">2017-03-23 19:09:58.648 QUEUE[4519:191391] concurrentQueue 异步 2 2017-03-23 11:09:58 +0000,&lt;NSThread: 0x600000260040&gt;&#123;number = 5, name = (null)&#125;</span><br><span class="line"></span><br><span class="line">// 执行结果 并行队列，先异步执行</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189774] concurrentQueue 异步 - 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189774] concurrentQueue 同步 - 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189822] concurrentQueue 异步 3 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x600000262380&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:44.660 QUEUE[4474:189774] concurrentQueue 同步 1 2017-03-23 11:08:44 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:44.660 QUEUE[4474:189820] concurrentQueue 异步 1 2017-03-23 11:08:44 +0000,&lt;NSThread: 0x618000267300&gt;&#123;number = 4, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:45.662 QUEUE[4474:189833] concurrentQueue 异步 2 2017-03-23 11:08:45 +0000,&lt;NSThread: 0x6100002626c0&gt;&#123;number = 5, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:46.661 QUEUE[4474:189774] concurrentQueue 同步 2 2017-03-23 11:08:46 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:47.663 QUEUE[4474:189774] concurrentQueue 同步 3 2017-03-23 11:08:47 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2、同步-amp-异步-阻塞-amp-非阻塞"><a href="#2、同步-amp-异步-阻塞-amp-非阻塞" class="headerlink" title="2、同步&amp;异步 阻塞&amp;非阻塞"></a>2、同步&amp;异步 阻塞&amp;非阻塞</h2><h3 id="2-1、知乎"><a href="#2-1、知乎" class="headerlink" title="2-1、知乎"></a>2-1、知乎</h3><blockquote>
+<p>老张爱喝茶，废话不说，煮开水。出场人物：老张，水壶两把（普通水壶，简称水壶；会响的水壶，简称响水壶）。<br>1 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻<br>2 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）<br>老张还是觉得自己有点傻，于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。<br>3 老张把响水壶放到火上，立等水开。（异步阻塞）<br>老张觉得这样傻等意义不大<br>4 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）<br>老张觉得自己聪明了。</p>
+</blockquote>
+<blockquote>
+<p>所谓同步异步，只是对于水壶而言。普通水壶，同步；响水壶，异步。虽然都能干活，但响水壶可以在自己完工之后，提示老张水开了。这是普通水壶所不能及的。同步只能让调用者去轮询自己（情况2中），造成老张效率的低下。所谓阻塞非阻塞，仅仅对于老张而言。立等的老张，阻塞；看电视的老张，非阻塞。情况1和情况3中老张就是阻塞的，媳妇喊他都不知道。虽然3中响水壶是异步的，可对于立等的老张没有太大的意义。所以一般异步是配合非阻塞使用的，这样才能发挥异步的效用。<br>作者：愚抄<br>链接：<a href="https://www.zhihu.com/question/19732473/answer/23434554" target="_blank" rel="noopener">https://www.zhihu.com/question/19732473/answer/23434554</a><br>更多答案 <a href="https://www.zhihu.com/question/19732473" target="_blank" rel="noopener">https://www.zhihu.com/question/19732473</a></p>
+</blockquote>
+<h3 id="2-2、伯乐在线"><a href="#2-2、伯乐在线" class="headerlink" title="2-2、伯乐在线"></a>2-2、伯乐在线</h3><blockquote>
+<p>同步/异步主要针对C端:<br>同步：<br>所谓同步，就是在c端发出一个功能调用时，在没有得到结果之前，该调用就不返回。也就是必须一件一件事做，等前一件做完了才能做下一件事。<br>例如普通B/S模式（同步）：提交请求-&gt;等待服务器处理-&gt;处理完毕返回 这个期间客户端浏览器不能干任何事<br>异步：<br>异步的概念和同步相对。当c端一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。<br>例如 ajax请求（异步）: 请求通过事件触发-&gt;服务器处理（这是浏览器仍然可以作其他事情）-&gt;处理完毕<br>阻塞/非阻塞主要针对S端:<br>阻塞<br>阻塞调用是指调用结果返回之前，当前线程会被挂起（线程进入非可执行状态，在这个状态下，cpu不会给线程分配时间片，即线程暂停运行）。函数只有在得到结果之后才会返回。<br>有人也许会把阻塞调用和同步调用等同起来，实际上他是不同的。对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回而已。 例如，我们在socket中调用recv函数，如果缓冲区中没有数据，这个函数就会一直等待，直到有数据才返回。而此时，当前线程还会继续处理各种各样的消息。<br>快递的例子：比如到你某个时候到A楼一层（假如是内核缓冲区）取快递，但是你不知道快递什么时候过来，你又不能干别的事，只能死等着。但你可以睡觉（进程处于休眠状态），因为你知道快递把货送来时一定会给你打个电话（假定一定能叫醒你）。<br>非阻塞<br>非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。<br>还是等快递的例子：如果用忙轮询的方法，每隔5分钟到A楼一层(内核缓冲区）去看快递来了没有。如果没来，立即返回。而快递来了，就放在A楼一层，等你去取。<br>来源 <a href="http://blog.jobbole.com/103290/?repeat=w3tc" target="_blank" rel="noopener">http://blog.jobbole.com/103290/?repeat=w3tc</a></p>
+</blockquote>
+<p>上面的两个分析中，知乎的例子更好理解，但是解释对象伯乐在线更对。同步异步应该是对老张而言，阻塞非阻塞是对水壶而言</p>
+<blockquote>
+<p>1)阻塞I/O（blocking I/O）<br>2)非阻塞I/O （nonblocking I/O）<br>3) I/O复用(select 和poll) （I/O multiplexing）<br>4)信号驱动I/O （signal driven I/O (SIGIO)）<br>5)异步I/O （asynchronous I/O (the POSIX aio_functions)）<br>前四种都是同步，只有最后一种才是异步IO。</p>
+</blockquote>
+<p>以上两部分都有关于 Linux下的五种I/O模型的解释</p>
+]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>Swift</tag>
+        <tag>OC</tag>
+        <tag>concurrency</tag>
       </tags>
   </entry>
   <entry>
@@ -899,47 +970,6 @@
       <tags>
         <tag>Swift</tag>
         <tag>iOS</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>同步 异步概念理解</title>
-    <url>/2017/03/23/%E5%90%8C%E6%AD%A5-%E5%BC%82%E6%AD%A5%E6%A6%82%E5%BF%B5%E7%90%86%E8%A7%A3-1/</url>
-    <content><![CDATA[<h2 id="1、-同步-amp-异步-串行-amp-并行"><a href="#1、-同步-amp-异步-串行-amp-并行" class="headerlink" title="1、 同步&amp;异步 串行&amp;并行"></a>1、 同步&amp;异步 串行&amp;并行</h2><p>以上两两相对的概念是比较容易理解的，一旦混合起来使用就容易错误。下面是我的个人理解。</p>
-<p>串行就是顺序执行（在一个线程中执行任务），并行相对应的不是顺序执行（会创建不同的线程去执行任务）。<br>同步需要等待执行，有结果才会返回，异步相对应的不会等待结果，任何时候有结果再返回都可以。</p>
-<a id="more"></a>
-<blockquote>
-<p>不管是串行队列（SerialQueue）还是并发队列（ConcurrencyQueue），都是FIFO队列。也就意味着，任务一定是一个一个地，按照先进先出的顺序来执行。</p>
-</blockquote>
-<p>串行队列下，不管是同步还是异步都是按照顺序的的执行，异步只是不在当前现成。<br>并行队列下，同步执行时因为需要等待，所以就在一个线程里执行就变成了串行的执行结果；异步执行并不需要等待而且系统会创建不同的线程去执行，不同线程中任务执行时间并不确定。（GCD可以通过信号量设置并行队列最大执行数，因为过多创建线程也会影响性能）<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">//定义一个信号量，初始化为10</span><br><span class="line">dispatch_semaphore_t semaphore = dispatch_semaphore_create(10);</span><br><span class="line"></span><br><span class="line">//同时执行100个任务</span><br><span class="line">for (int i = 0; i &lt; 100; i++)</span><br><span class="line">&#123;</span><br><span class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</span><br><span class="line"></span><br><span class="line">//当前信号量-1</span><br><span class="line">dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);</span><br><span class="line"></span><br><span class="line">NSLog(@&quot;任务%d执行&quot;,i+1);</span><br><span class="line">NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:kUrlString]];</span><br><span class="line"></span><br><span class="line">dispatch_async(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">//TODO:刷新界面</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">//当前信号量+1</span><br><span class="line">dispatch_semaphore_signal(semaphore);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line">//来源 http://www.jianshu.com/p/ea72d1ded383</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-1、图示"><a href="#1-1、图示" class="headerlink" title="1-1、图示"></a>1-1、图示</h3><p>串行 并行 + 同步<br><img src="http://upload-images.jianshu.io/upload_images/2181684-49e9096cfae9d790.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="串行 并行 + 同步.jpg"></p>
-<p>串行 异步<br><img src="http://upload-images.jianshu.io/upload_images/2181684-ab076a45be7916ba.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="串行 + 异步.jpg"></p>
-<p>并行 异步</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2181684-5e2c7c0d770f68c5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="并行 + 异步.jpg"></p>
-<h3 id="1-2、示例代码"><a href="#1-2、示例代码" class="headerlink" title="1-2、示例代码"></a>1-2、示例代码</h3><p>分别是 串行队列 “同步执行，异步执行” 和 并行队列 “同步执行，异步执行”<br>先执行同步和先执行异步结果也是不一样的，从结果我们可以看出，<strong><em>当前线程创建一个同步执行的串行\并行队列都会使当前线程阻塞</em></strong>，一定要慎用。iOS中千万注意是不是主线程是否使用了同步。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)serialQueue1 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;serialQueue1&quot;, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 - %@&quot;,[NSDate date]);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 1 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 2 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 同步 3 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)serialQueue2 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;serialQueue2&quot;, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 - %@&quot;,[NSDate date]);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 1 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;serialQueue 异步 2 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">NSLog(@&quot;serialQueue 异步 3 %@&quot;,[NSDate date]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 执行结果 串行队列，先同步执行</span><br><span class="line">2017-03-23 18:38:31.069 QUEUE[4001:169705] serialQueue 同步 - 2017-03-23 10:38:31 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:32.069 QUEUE[4001:169705] serialQueue 同步 1 2017-03-23 10:38:32 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:34.070 QUEUE[4001:169705] serialQueue 同步 2 2017-03-23 10:38:34 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:35.072 QUEUE[4001:169705] serialQueue 同步 3 2017-03-23 10:38:35 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:35.072 QUEUE[4001:169705] serialQueue 异步 - 2017-03-23 10:38:35 +0000,&lt;NSThread: 0x600000068e80&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:38:36.076 QUEUE[4001:169752] serialQueue 异步 1 2017-03-23 10:38:36 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:38:38.082 QUEUE[4001:169752] serialQueue 异步 2 2017-03-23 10:38:38 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:38:38.083 QUEUE[4001:169752] serialQueue 异步 3 2017-03-23 10:38:38 +0000,&lt;NSThread: 0x60000006eec0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">// 执行结果 串行队列，先异步执行</span><br><span class="line">2017-03-23 18:45:08.531 QUEUE[4102:173791] serialQueue 异步 - 2017-03-23 10:45:08 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:08.531 QUEUE[4102:173791] serialQueue 同步 - 2017-03-23 10:45:08 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:09.533 QUEUE[4102:173791] serialQueue 同步 1 2017-03-23 10:45:09 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:09.536 QUEUE[4102:173832] serialQueue 异步 1 2017-03-23 10:45:09 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:11.535 QUEUE[4102:173791] serialQueue 同步 2 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 18:45:11.541 QUEUE[4102:173832] serialQueue 异步 2 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:11.542 QUEUE[4102:173832] serialQueue 异步 3 2017-03-23 10:45:11 +0000,&lt;NSThread: 0x6080000728c0&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 18:45:12.536 QUEUE[4102:173791] serialQueue 同步 3 2017-03-23 10:45:12 +0000,&lt;NSThread: 0x6000000712c0&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- (void)concurrentQueue1 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;concurrentQueue1&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 - %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 1 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 2 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_sync(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 同步 3 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)concurrentQueue2 &#123;</span><br><span class="line">dispatch_queue_t queue = dispatch_queue_create(&quot;concurrentQueue2&quot;, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 - %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(1);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 1 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">sleep(2);</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 2 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">dispatch_async(queue, ^&#123;</span><br><span class="line">NSLog(@&quot;concurrentQueue 异步 3 %@,%@&quot;,[NSDate date],[NSThread currentThread]);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line">// 执行结果 并行队列，先同步执行</span><br><span class="line">2017-03-23 19:09:52.637 QUEUE[4519:191342] concurrentQueue 同步 - 2017-03-23 11:09:52 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:53.638 QUEUE[4519:191342] concurrentQueue 同步 1 2017-03-23 11:09:53 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:55.640 QUEUE[4519:191342] concurrentQueue 同步 2 2017-03-23 11:09:55 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.642 QUEUE[4519:191342] concurrentQueue 同步 3 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.642 QUEUE[4519:191342] concurrentQueue 异步 - 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x6180000789c0&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:09:56.643 QUEUE[4519:191406] concurrentQueue 异步 3 2017-03-23 11:09:56 +0000,&lt;NSThread: 0x61800007c740&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 19:09:57.645 QUEUE[4519:191388] concurrentQueue 异步 1 2017-03-23 11:09:57 +0000,&lt;NSThread: 0x600000260080&gt;&#123;number = 4, name = (null)&#125;</span><br><span class="line">2017-03-23 19:09:58.648 QUEUE[4519:191391] concurrentQueue 异步 2 2017-03-23 11:09:58 +0000,&lt;NSThread: 0x600000260040&gt;&#123;number = 5, name = (null)&#125;</span><br><span class="line"></span><br><span class="line">// 执行结果 并行队列，先异步执行</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189774] concurrentQueue 异步 - 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189774] concurrentQueue 同步 - 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:43.658 QUEUE[4474:189822] concurrentQueue 异步 3 2017-03-23 11:08:43 +0000,&lt;NSThread: 0x600000262380&gt;&#123;number = 3, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:44.660 QUEUE[4474:189774] concurrentQueue 同步 1 2017-03-23 11:08:44 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:44.660 QUEUE[4474:189820] concurrentQueue 异步 1 2017-03-23 11:08:44 +0000,&lt;NSThread: 0x618000267300&gt;&#123;number = 4, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:45.662 QUEUE[4474:189833] concurrentQueue 异步 2 2017-03-23 11:08:45 +0000,&lt;NSThread: 0x6100002626c0&gt;&#123;number = 5, name = (null)&#125;</span><br><span class="line">2017-03-23 19:08:46.661 QUEUE[4474:189774] concurrentQueue 同步 2 2017-03-23 11:08:46 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br><span class="line">2017-03-23 19:08:47.663 QUEUE[4474:189774] concurrentQueue 同步 3 2017-03-23 11:08:47 +0000,&lt;NSThread: 0x608000260080&gt;&#123;number = 1, name = main&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="2、同步-amp-异步-阻塞-amp-非阻塞"><a href="#2、同步-amp-异步-阻塞-amp-非阻塞" class="headerlink" title="2、同步&amp;异步 阻塞&amp;非阻塞"></a>2、同步&amp;异步 阻塞&amp;非阻塞</h2><h3 id="2-1、知乎"><a href="#2-1、知乎" class="headerlink" title="2-1、知乎"></a>2-1、知乎</h3><blockquote>
-<p>老张爱喝茶，废话不说，煮开水。出场人物：老张，水壶两把（普通水壶，简称水壶；会响的水壶，简称响水壶）。<br>1 老张把水壶放到火上，立等水开。（同步阻塞）老张觉得自己有点傻<br>2 老张把水壶放到火上，去客厅看电视，时不时去厨房看看水开没有。（同步非阻塞）<br>老张还是觉得自己有点傻，于是变高端了，买了把会响笛的那种水壶。水开之后，能大声发出嘀~~~~的噪音。<br>3 老张把响水壶放到火上，立等水开。（异步阻塞）<br>老张觉得这样傻等意义不大<br>4 老张把响水壶放到火上，去客厅看电视，水壶响之前不再去看它了，响了再去拿壶。（异步非阻塞）<br>老张觉得自己聪明了。</p>
-</blockquote>
-<blockquote>
-<p>所谓同步异步，只是对于水壶而言。普通水壶，同步；响水壶，异步。虽然都能干活，但响水壶可以在自己完工之后，提示老张水开了。这是普通水壶所不能及的。同步只能让调用者去轮询自己（情况2中），造成老张效率的低下。所谓阻塞非阻塞，仅仅对于老张而言。立等的老张，阻塞；看电视的老张，非阻塞。情况1和情况3中老张就是阻塞的，媳妇喊他都不知道。虽然3中响水壶是异步的，可对于立等的老张没有太大的意义。所以一般异步是配合非阻塞使用的，这样才能发挥异步的效用。<br>作者：愚抄<br>链接：<a href="https://www.zhihu.com/question/19732473/answer/23434554" target="_blank" rel="noopener">https://www.zhihu.com/question/19732473/answer/23434554</a><br>更多答案 <a href="https://www.zhihu.com/question/19732473" target="_blank" rel="noopener">https://www.zhihu.com/question/19732473</a></p>
-</blockquote>
-<h3 id="2-2、伯乐在线"><a href="#2-2、伯乐在线" class="headerlink" title="2-2、伯乐在线"></a>2-2、伯乐在线</h3><blockquote>
-<p>同步/异步主要针对C端:<br>同步：<br>所谓同步，就是在c端发出一个功能调用时，在没有得到结果之前，该调用就不返回。也就是必须一件一件事做，等前一件做完了才能做下一件事。<br>例如普通B/S模式（同步）：提交请求-&gt;等待服务器处理-&gt;处理完毕返回 这个期间客户端浏览器不能干任何事<br>异步：<br>异步的概念和同步相对。当c端一个异步过程调用发出后，调用者不能立刻得到结果。实际处理这个调用的部件在完成后，通过状态、通知和回调来通知调用者。<br>例如 ajax请求（异步）: 请求通过事件触发-&gt;服务器处理（这是浏览器仍然可以作其他事情）-&gt;处理完毕<br>阻塞/非阻塞主要针对S端:<br>阻塞<br>阻塞调用是指调用结果返回之前，当前线程会被挂起（线程进入非可执行状态，在这个状态下，cpu不会给线程分配时间片，即线程暂停运行）。函数只有在得到结果之后才会返回。<br>有人也许会把阻塞调用和同步调用等同起来，实际上他是不同的。对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回而已。 例如，我们在socket中调用recv函数，如果缓冲区中没有数据，这个函数就会一直等待，直到有数据才返回。而此时，当前线程还会继续处理各种各样的消息。<br>快递的例子：比如到你某个时候到A楼一层（假如是内核缓冲区）取快递，但是你不知道快递什么时候过来，你又不能干别的事，只能死等着。但你可以睡觉（进程处于休眠状态），因为你知道快递把货送来时一定会给你打个电话（假定一定能叫醒你）。<br>非阻塞<br>非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，该函数不会阻塞当前线程，而会立刻返回。<br>还是等快递的例子：如果用忙轮询的方法，每隔5分钟到A楼一层(内核缓冲区）去看快递来了没有。如果没来，立即返回。而快递来了，就放在A楼一层，等你去取。<br>来源 <a href="http://blog.jobbole.com/103290/?repeat=w3tc" target="_blank" rel="noopener">http://blog.jobbole.com/103290/?repeat=w3tc</a></p>
-</blockquote>
-<p>上面的两个分析中，知乎的例子更好理解，但是解释对象伯乐在线更对。同步异步应该是对老张而言，阻塞非阻塞是对水壶而言</p>
-<blockquote>
-<p>1)阻塞I/O（blocking I/O）<br>2)非阻塞I/O （nonblocking I/O）<br>3) I/O复用(select 和poll) （I/O multiplexing）<br>4)信号驱动I/O （signal driven I/O (SIGIO)）<br>5)异步I/O （asynchronous I/O (the POSIX aio_functions)）<br>前四种都是同步，只有最后一种才是异步IO。</p>
-</blockquote>
-<p>以上两部分都有关于 Linux下的五种I/O模型的解释</p>
-]]></content>
-      <categories>
-        <category>iOS</category>
-      </categories>
-      <tags>
-        <tag>Swift</tag>
-        <tag>OC</tag>
-        <tag>concurrency</tag>
       </tags>
   </entry>
 </search>
